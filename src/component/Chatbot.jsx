@@ -131,7 +131,7 @@ function Chatbot({ initialQuery,onBack  }) {
   return (
     <div className="p-4 rounded-lg shadow-md w-[400px] flex flex-col h-[500px] bg-[#faf5f5] mb-10">
       {/* Header */}
-      <div className="flex items-center gap-2 p-3 bg-gradient-to-r from-[#d9d7d7] to-[#edebeb] rounded-lg shadow-sm w-full mb-2">
+      <div className="flex items-center gap-2 p-3 bg-[#d9d7d7] rounded-lg shadow-sm w-full mb-2">
       <button onClick={onBack}>
   <img
     src="\src\assets\back.png" // ← Use your actual arrow icon path
@@ -142,14 +142,14 @@ function Chatbot({ initialQuery,onBack  }) {
 
 
 
-  <img src="/src/assets/happy.png" alt="Bot Icon" className="w-6 h-6" />
+  {/* <img src="/src/assets/happy.png" alt="Bot Icon" className="w-6 h-6" /> */}
   <h1 className="text-lg font-semibold text-gray-800">Udyami Bot</h1>
 </div>
 
       {/* Scrollable chat area */}
       <div
         ref={chatContainerRef}
-        className="flex-grow overflow-y-auto mb-4 pr-2 mt-3"
+        className="flex-grow overflow-y-auto mb-1 pr-2 mt-3  rounded-lg"
       >
         {messages.map((msg, i) => (
           <div
@@ -203,7 +203,7 @@ function Chatbot({ initialQuery,onBack  }) {
       <div className="flex items-center mt-4 space-x-2">
         <input
           type="text"
-          className="w-full h-12 px-4 text-sm rounded-full border border-[#ccc] focus:outline-none focus:ring-1 focus:ring-[#cecece] transition duration-300 ease-in-out"
+          className="w-full h-8 px-4 text-sm rounded-full border border-[#ccc] focus:outline-none focus:ring-1 focus:ring-[#cecece] transition duration-300 ease-in-out"
           style={{
             backgroundColor: "#f5f5f5",
             color: "black",
@@ -215,7 +215,7 @@ function Chatbot({ initialQuery,onBack  }) {
         />
         <button
           onClick={handleSendMessage}
-          className="h-12 px-6 text-sm text-black bg-[#9a9a9a] rounded-full hover:bg-[#8b8b8b] focus:outline-none transition duration-300 ease-in-out"
+          className="h-8 px-6 text-sm text-black bg-[#9a9a9a] rounded-full hover:bg-[#8b8b8b] focus:outline-none transition duration-300 ease-in-out"
         >
           <img className="h-8 w-8" src="\src\assets\text.png" alt="send" />
         </button>
