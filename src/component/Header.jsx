@@ -2,7 +2,8 @@ import React from 'react';
 
 const UdyamiHeader = () => {
   return (
-    <header className="bg-[#dddddd] h-16 py-4 px-6 flex items-center justify-between shadow-xl shadow-gray-300 ">
+    // bg-[#dddddd]
+    <header className=" h-16 py-4 px-6 flex items-center justify-between shadow-xl shadow-gray-300 ">
       {/* Logo & Title */}
       <div className="flex items-center space-x-3">
         <img
@@ -14,21 +15,21 @@ const UdyamiHeader = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="hidden md:flex space-x-6 font-medium">
+      {/* <nav className="hidden md:flex space-x-6 font-medium">
         <a href="#home" className="text-[#2e2a2c] hover:text-[#575656]">Home</a>
         <a href="#about" className="text-[#2e2a2c] hover:text-[#575656]">About</a>
         <a href="#eligibility" className="text-[#2e2a2c] hover:text-[#575656]">Eligibility</a>
         <a href="#apply" className="text-[#2e2a2c] hover:text-[#575656]">Apply</a>
         <a href="#contact" className="text-[#2e2a2c] hover:text-[#575656]">Contact</a>
-      </nav>
+      </nav> */}
 
       {/* Apply Now Button */}
-      <a
+      {/* <a
         href="#apply"
         className="bg-[#606060] text-white px-4 py-2 rounded hover:bg-[#363535] transition"
       >
         Apply Now
-      </a>
+      </a> */}
     </header>
   );
 };

@@ -14,7 +14,6 @@ import closeIcon from "../assets/close.png";
 import searchIcon from "../assets/search-interface-symbol.png";
 import Footer from './Footer'; // adjust path if needed
 
-
 const schemeIcons = {
   "What is Udyami Yojna?": <Lightbulb className="mr-2 text-yellow-500" />,
   "Who is eligible for Udyami Yojna?": <Briefcase className="mr-2 text-green-500" />,
@@ -22,10 +21,10 @@ const schemeIcons = {
   "उद्यामी योजना से क्या लाभ प्राप्त होते हैं?": <GraduationCap className="mr-2 text-purple-500" />,
   "उद्यामी योजना के बारे में अधिक जानकारी कहाँ प्राप्त करें?": <Globe className="mr-2 text-teal-500" />,
   "उद्यामी योजना में पीएमईजीपी की भूमिका क्या है?": <Building2 className="mr-2 text-red-500" />,
-    "How does Udyami Yojna support digital initiatives?": <Heart className="mr-2 text-pink-500" />,
+  "How does Udyami Yojna support digital initiatives?": <Heart className="mr-2 text-pink-500" />,
   "What training and mentorship opportunities does Udyami Yojna offer?": <Briefcase className="mr-2 text-indigo-500" />,
-  "How is Udyami Yojna evaluated and ranked?": <GraduationCap className="mr-2 text-orange-500" />,
-  };
+  "How is Udyami Yojna evaluated and ranked?": <GraduationCap className="mr-2 text-orange-500" />,
+};
 
 function InputField() {
   const [isFocused, setIsFocused] = useState(false);
@@ -53,6 +52,12 @@ function InputField() {
     setTriggeredQuery(query);
   };
 
+  // Handle the back action to hide chatbot and show search box
+  const handleBack = () => {
+    setSearch(false);
+    setValue(""); // Optional: Clear search input when going back
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -64,7 +69,7 @@ function InputField() {
   }, []);
 
   return (
-    <div className="bg-[#f1f1db] h-[575px] w-full flex justify-center items-center">
+    <div className="bg-[#f1f1db] h-[575px] w-full flex justify-center items-center overflow-hidden">
       <div className="relative w-fit h-fit flex flex-col items-center rounded-3xl">
         {/* Input Box */}
         {!search && (
@@ -84,9 +89,8 @@ function InputField() {
               onFocus={() => setIsFocused(true)}
               onChange={handleInputValue}
               className={`h-12 w-96 pl-12 pr-10 rounded-full font-medium text-[#000000]
-                placeholder-[#131212] bg-[#d7d7d7] border-2
-                ${isFocused ? "border-[#fbeeee] ring-1 ring-[#dadada]" : "border-[#bcbcbc]"}
-                focus:outline-none transition duration-300`}
+                placeholder-[#131212] bg-[#e6e2e2] border-2  
+                ${isFocused ? "border-[#fff9f9] ring-1 ring-[#dadada]" : "border-[#ffffff]"}`}
               type="text"
               placeholder="Search here..."
               autoComplete="off"
@@ -100,7 +104,7 @@ function InputField() {
             {/* Search Icon */}
             <img
               onClick={handleSearch}
-              className="h-5 w-5 absolute left-4 top-3 cursor-pointer"
+              className="h-5 w-5 absolute left-3.5 top-4 cursor-pointer"
               src={searchIcon}
               alt="search"
             />
@@ -108,7 +112,7 @@ function InputField() {
             {/* Close Icon */}
             <img
               onClick={() => setValue("")}
-              className="h-5 w-5 absolute right-4 top-3 cursor-pointer"
+              className="h-5 w-5 absolute right-4 top-3.5 cursor-pointer"
               src={closeIcon}
               alt="close"
             />
@@ -121,11 +125,11 @@ function InputField() {
             initial={{ y: 0, scale: 1 }}
             animate={isFocused ? { y: -240, scale: 1.05 } : { y: 0, scale: 1 }}
             transition={{
-              type: "tween",
+              type: "smooth",
               stiffness: 300,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="absolute top-full mt-1 bg-[#d7d7d7] shadow-md rounded-md w-96 p-2 z-10 overflow-x-hidden"
+            className="absolute top-full mt-2 bg-[#d7d7d7] shadow-md rounded-md w-96 p-2 z-10 "
           >
             {Object.entries(schemeIcons).map(([question, icon]) => (
               <div
@@ -142,19 +146,13 @@ function InputField() {
 
         {/* Chatbot */}
         {search && triggeredQuery && (
-          <Chatbot initialQuery={triggeredQuery} />
+          <Chatbot initialQuery={triggeredQuery} onBack={handleBack} />
         )}
       </div>
-    
-    {/* footer */}
-     
-      
-    <Footer />
-     
-     
+
+      {/* Footer */}
+      <Footer />
     </div>
-
-
   );
 }
 
