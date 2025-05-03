@@ -3,7 +3,7 @@ import React from 'react';
 const UdyamiHeader = () => {
   return (
     // bg-[#dddddd]
-    <header className=" h-16 py-4 px-6 flex items-center justify-between shadow-xl shadow-gray-300 ">
+    <header className="bg-[#f1f1db] h-16 py-4 px-6 flex items-center justify-between shadow-xl shadow-gray-300 ">
       {/* Logo & Title */}
       <div className="flex items-center space-x-3">
         <img

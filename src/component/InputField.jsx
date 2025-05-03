@@ -69,7 +69,7 @@ function InputField() {
   }, []);
 
   return (
-    <div className="bg-[#f1f1db] h-[575px] w-full flex justify-center items-center overflow-hidden">
+    <div className="bg-white h-[575px] w-full flex justify-center items-center overflow-hidden">
       <div className="relative w-fit h-fit flex flex-col items-center rounded-3xl">
         {/* Input Box */}
         {!search && (
@@ -88,9 +88,9 @@ function InputField() {
               ref={wrapperRef}
               onFocus={() => setIsFocused(true)}
               onChange={handleInputValue}
-              className={`h-12 w-96 pl-12 pr-10 rounded-full font-medium text-[#000000]
+              className={`h-12 w-96 pl-12 pr-10 rounded-xl font-medium text-[#000000]
                 placeholder-[#131212] bg-[#e6e2e2] border-2  
-                ${isFocused ? "border-[#fff9f9] ring-1 ring-[#dadada]" : "border-[#ffffff]"}`}
+                ${isFocused ? "border-[#fff9f9] ring-1 ring-[#636363]" : "border-[#7a7a7a]"}`}
               type="text"
               placeholder="Search here..."
               autoComplete="off"
@@ -129,7 +129,7 @@ function InputField() {
               stiffness: 300,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="absolute top-full mt-2 bg-[#d7d7d7] shadow-md rounded-md w-96 p-2 z-10 "
+            className="absolute top-full mt-2 bg-[#d7d7d7] shadow-md rounded-xl w-96 p-2 z-10 "
           >
             {Object.entries(schemeIcons).map(([question, icon]) => (
               <div
