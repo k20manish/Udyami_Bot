@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 
-function Chatbot({ initialQuery,onBack  }) {
+function Chatbot({ initialQuery, onBack }) {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState(
@@ -14,22 +14,23 @@ function Chatbot({ initialQuery,onBack  }) {
   const abortControllerRef = useRef(null);
   const [userQuery, setUserQuery] = useState("");
 
-
   const navigate = useNavigate();
 
   // Function to format list-like responses manually
   const formatResponseAsMarkdown = (text) => {
-    const lines = text.split("\n").map(line => line.trim());
+    const lines = text.split("\n").map((line) => line.trim());
 
-    const isNumberedList = lines.every(line => /^\d+\.\s+/.test(line));
-    const isBulletList = lines.every(line => /^[-*•]\s+/.test(line));
+    const isNumberedList = lines.every((line) => /^\d+\.\s+/.test(line));
+    const isBulletList = lines.every((line) => /^[-*•]\s+/.test(line));
 
     if (isNumberedList) {
       return lines.join("\n"); // Already markdown
     }
 
     if (isBulletList) {
-      return lines.map(line => `- ${line.replace(/^[-*•]\s+/, "")}`).join("\n");
+      return lines
+        .map((line) => `- ${line.replace(/^[-*•]\s+/, "")}`)
+        .join("\n");
     }
 
     return text;
@@ -129,22 +130,14 @@ function Chatbot({ initialQuery,onBack  }) {
   }, [messages]);
 
   return (
-    <div className="p-4 rounded-lg shadow-md w-[400px] flex flex-col h-[500px] bg-[#faf5f5] mb-10">
+    <div className=" rounded-lg shadow-md w-[400px] flex flex-col h-[500px] bg-[#f7f7f7] mb-10">
       {/* Header */}
-      <div className="flex items-center gap-2 p-3 bg-[#d9d7d7] rounded-lg shadow-sm w-full mb-2">
-      <button onClick={onBack}>
-  <img
-    src="\src\assets\back.png" // ← Use your actual arrow icon path
-    alt="Back"
-    className="w-5 h-5"
-  />
-</button>
-
-
-
-  {/* <img src="/src/assets/happy.png" alt="Bot Icon" className="w-6 h-6" /> */}
-  <h1 className="text-lg font-semibold text-gray-800">Udyami Bot</h1>
-</div>
+      <div className="w-full rounded-t-lg shadow-sm bg-[#d9d7d7] flex items-center gap-2 px-3 py-2 mb-2">
+        <button onClick={onBack}>
+          <img src="\src\assets\back.png" alt="Back" className="w-5 h-5" />
+        </button>
+        <h1 className="text-lg font-semibold flex items-center text-black/70">Udyami Bot</h1>
+      </div>
 
       {/* Scrollable chat area */}
       <div
@@ -155,13 +148,13 @@ function Chatbot({ initialQuery,onBack  }) {
           <div
             key={i}
             className={`mb-2 flex ${
-              msg.type === "user" ? "justify-end ml-16" : "justify-start mr-16"
+              msg.type === "user" ? "justify-end ml-16" : "justify-start mr-16 ml-2"
             }`}
           >
             <div
-              className={`px-4 py-2 rounded-xl text-sm`}
+              className={`px-4 py-2 rounded-lg text-sm`}
               style={{
-                backgroundColor: msg.type === "user" ? "#e7e7e7" : "#cfc9c8",
+                backgroundColor: msg.type === "user" ? "#e7e7e7" : "#d9d7d7",
                 maxWidth: "100%",
                 wordBreak: "break-word",
                 color: "black",
@@ -193,14 +186,14 @@ function Chatbot({ initialQuery,onBack  }) {
         ))}
 
         {loading && (
-          <div className="text-left italic w-fit bg-[#F1E7E7] rounded-md pl-2 text-sm">
+          <div className="text-left italic w-fit bg-[#d6d6d6] rounded-md px-3 py-1 text-sm ml-2">
             Bot is typing...
           </div>
         )}
       </div>
 
       {/* Input area */}
-      <div className="flex items-center mt-4 space-x-2">
+      <div className="flex items-center mt-4 mb-2 mx-2 space-x-2">
         <input
           type="text"
           className="w-full h-8 px-4 text-sm rounded-full border border-[#ccc] focus:outline-none focus:ring-1 focus:ring-[#cecece] transition duration-300 ease-in-out"
@@ -215,7 +208,7 @@ function Chatbot({ initialQuery,onBack  }) {
         />
         <button
           onClick={handleSendMessage}
-          className="h-8 px-6 text-sm text-black bg-[#9a9a9a] rounded-full hover:bg-[#8b8b8b] focus:outline-none transition duration-300 ease-in-out"
+          className="h-8 px-6 text-sm text-black bg-[#d9d7d7] rounded-full hover:bg-[#8b8b8b] focus:outline-none transition duration-300 ease-in-out"
         >
           <img className="h-8 w-8" src="\src\assets\text.png" alt="send" />
         </button>

@@ -88,9 +88,9 @@ function InputField() {
               ref={wrapperRef}
               onFocus={() => setIsFocused(true)}
               onChange={handleInputValue}
-              className={`h-12 w-96 pl-12 pr-10 rounded-xl font-medium text-[#000000]
-                placeholder-[#131212] bg-[#e6e2e2] border-2  
-                ${isFocused ? "border-[#fff9f9] ring-1 ring-[#636363]" : "border-[#7a7a7a]"}`}
+              className={`h-12 w-96 pl-12 pr-10 rounded-xl font-normal text-[#3b3b3b]
+                placeholder-[#393838] bg-[#f7f7f7] border-2  
+                ${isFocused ? "border-[#9d9b9b] ring-1 ring-[#fffefe]" : "border-[#e7e4e4]"}`}
               type="text"
               placeholder="Search here..."
               autoComplete="off"
@@ -129,13 +129,13 @@ function InputField() {
               stiffness: 300,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="absolute top-full mt-2 bg-[#d7d7d7] shadow-md rounded-xl w-96 p-2 z-10 "
+            className="absolute top-full mt-2 bg-[#f7f7f7] shadow-md rounded-xl w-96 p-2 z-10 "
           >
             {Object.entries(schemeIcons).map(([question, icon]) => (
               <div
                 key={question}
                 onMouseDown={() => handleSuggestionSelect(question)}
-                className="cursor-pointer hover:bg-[#a4a2a2] text-[#0f0e0f] p-2 rounded flex items-center"
+                className="cursor-pointer hover:bg-[#d5d5d5] text-[#1f1e1f] text-sm p-2 rounded flex items-center"
               >
                 {icon}
                 <span className="ml-2">{question}</span>
