@@ -75,7 +75,7 @@ function InputField() {
         {!search && (
           <motion.div
             initial={{ y: 0, scale: 1 }}
-            animate={isFocused ? { y: -250, scale: 1.05 } : { y: 0, scale: 1 }}
+            animate={isFocused ? { y: -200, scale: 1.05 } : { y: 0, scale: 1 }}
             transition={{
               type: "tween",
               stiffness: 300,
@@ -123,7 +123,7 @@ function InputField() {
         {isFocused && (
           <motion.div
             initial={{ y: 0, scale: 1 }}
-            animate={isFocused ? { y: -240, scale: 1.05 } : { y: 0, scale: 1 }}
+            animate={isFocused ? { y: -190, scale: 1.05 } : { y: 0, scale: 1 }}
             transition={{
               type: "smooth",
               stiffness: 300,
