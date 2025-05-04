@@ -130,7 +130,8 @@ function Chatbot({ initialQuery, onBack }) {
   return (
     <div className="rounded-lg shadow-md w-[350px] flex flex-col h-[500px] bg-[#ffffff] mb-10 mt-20">
       {/* Header */}
-      <div className="w-full h-14 relative rounded-t-lg shadow-sm bg-[#f198d3] flex items-center px-3">
+      <div className="w-full h-16 flex-shrink-0 relative rounded-t-lg shadow-sm bg-[#ed71c4] flex items-center px-3">
+
         <button onClick={onBack}>
           <img src="\src\assets\back.png" alt="Back" className="w-5 h-5 cursor-pointer" />
         </button>
@@ -166,10 +167,10 @@ function Chatbot({ initialQuery, onBack }) {
             <div
               className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
               style={{
-                backgroundColor: msg.type === "user" ? "#5f35eb" : "#f348b7",
+                backgroundColor: msg.type === "user" ? "#9d85ed" : "#f77ccc",
                 maxWidth: "100%",
                 wordBreak: "break-word",
-                color: "white",
+                color: "black",
               }}
             >
               {msg.type === "bot" ? (
@@ -230,7 +231,7 @@ function Chatbot({ initialQuery, onBack }) {
           onClick={handleSendMessage}
           className="h-8 cursor-pointer px-6 text-sm text-white bg-[#f348b7] rounded-full hover:bg-[#c46da8f7] focus:outline-none transition duration-300 ease-in-out"
         >
-          <img className="h-6 w-8" src="\src\assets\text.png" alt="send" />
+          <img className="h-6 w-8" src="\src\assets\back_image.png" alt="send" />
         </button>
       </div>
     </div>
