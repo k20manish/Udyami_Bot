@@ -167,7 +167,7 @@ function Chatbot({ initialQuery, onBack }) {
             <div
               className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
               style={{
-                backgroundColor: msg.type === "user" ? "#9d85ed" : "#f77ccc",
+                backgroundColor: msg.type === "user" ?'#bcaded' : "#f77ccc",
                 maxWidth: "100%",
                 wordBreak: "break-word",
                 color: "black",
@@ -202,7 +202,7 @@ function Chatbot({ initialQuery, onBack }) {
         ))}
 
         {loading && (
-          <div className="text-left italic w-fit bg-[#ee15a2] rounded-md px-3 py-1 text-sm ml-2 text-white">
+          <div className="text-left italic w-fit bg-[#f77ccc] rounded-md px-3 py-1 text-sm ml-2 text-white">
             thinking...
           </div>
         )}
