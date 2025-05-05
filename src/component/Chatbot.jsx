@@ -9,7 +9,9 @@ import { motion } from "framer-motion";
 function Chatbot({ initialQuery, onBack }) {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [userId, setUserId] = useState(() => localStorage.getItem("user_id") || "");
+  const [userId, setUserId] = useState(
+    () => localStorage.getItem("user_id") || ""
+  );
   const [language, setLanguage] = useState("en");
   const hasHandledInitialQuery = useRef(false);
   const chatContainerRef = useRef(null);
@@ -29,7 +31,9 @@ function Chatbot({ initialQuery, onBack }) {
 
     if (isNumberedList) return lines.join("\n");
     if (isBulletList)
-      return lines.map((line) => `- ${line.replace(/^[-*•]\s+/, "")}`).join("\n");
+      return lines
+        .map((line) => `- ${line.replace(/^[-*•]\s+/, "")}`)
+        .join("\n");
 
     return text;
   };
@@ -55,18 +59,22 @@ function Chatbot({ initialQuery, onBack }) {
       abortControllerRef.current = new AbortController();
 
       try {
-        const response = await fetch("https://chatbot-final-hvuc.onrender.com/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            text: query,
-            user_id: userId,
-            language: language,
-          }),
-          signal: abortControllerRef.current.signal,
-        });
+        const response = await fetch(
+          "https://chatbot-final-hvuc.onrender.com/chat",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              text: query,
+              user_id: userId,
+              language: language,
+            }),
+            signal: abortControllerRef.current.signal,
+          }
+        );
 
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!response.ok)
+          throw new Error(`HTTP error! Status: ${response.status}`);
 
         const data = await response.json();
 
@@ -120,7 +128,8 @@ function Chatbot({ initialQuery, onBack }) {
 
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
     }
   }, [messages]);
 
@@ -129,16 +138,20 @@ function Chatbot({ initialQuery, onBack }) {
   }, []);
 
   return (
-    <motion.div 
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4 }}
-    className="rounded-lg shadow-md w-[350px] flex flex-col h-[500px] bg-[#ffffff] mb-10 mt-20">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="rounded-lg shadow-md w-[350px] flex flex-col h-[500px] bg-[#ffffff] mb-10 mt-20"
+    >
       {/* Header */}
       <div className="w-full h-16 flex-shrink-0 relative rounded-t-lg shadow-sm bg-[#ed71c4] flex items-center px-3">
-
         <button onClick={onBack}>
-          <img src="\src\assets\back.png" alt="Back" className="w-5 h-5 cursor-pointer" />
+          <img
+            src="\src\assets\back.png"
+            alt="Back"
+            className="w-5 h-5 cursor-pointer"
+          />
         </button>
         <h1 className="absolute left-1/2 transform -translate-x-1/2 text-lg font-semibold text-[#000000] font-sans">
           Udyami Bot
@@ -172,7 +185,7 @@ function Chatbot({ initialQuery, onBack }) {
             <div
               className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
               style={{
-                backgroundColor: msg.type === "user" ?'#bcaded' : "#f77ccc",
+                backgroundColor: msg.type === "user" ? "#bcaded" : "#f77ccc",
                 maxWidth: "100%",
                 wordBreak: "break-word",
                 color: "black",
@@ -213,7 +226,7 @@ function Chatbot({ initialQuery, onBack }) {
         )}
       </div>
 
-      {/* Input area */} 
+      {/* Input area */}
       <div className="flex items-center mt-4 mb-2 mx-2 space-x-2">
         <input
           type="text"
@@ -236,7 +249,11 @@ function Chatbot({ initialQuery, onBack }) {
           onClick={handleSendMessage}
           className="h-8 cursor-pointer px-6 text-sm text-white bg-[#f348b7] rounded-full hover:bg-[#c46da8f7] focus:outline-none transition duration-300 ease-in-out"
         >
-          <img className="h-6 w-8" src="\src\assets\back_image.png" alt="send" />
+          <img
+            className="h-6 w-8"
+            src="\src\assets\back_image.png"
+            alt="send"
+          />
         </button>
       </div>
     </motion.div>

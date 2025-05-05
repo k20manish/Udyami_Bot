@@ -12,18 +12,34 @@ import {
 } from "lucide-react";
 import closeIcon from "../assets/close.png";
 import searchIcon from "../assets/search-interface-symbol.png";
-import Footer from './Footer'; // adjust path if needed
+import Footer from "./Footer"; // adjust path if needed
 
 const schemeIcons = {
   "What is Udyami Yojna?": <Lightbulb className="mr-2 text-yellow-500" />,
-  "Who is eligible for Udyami Yojna?": <Briefcase className="mr-2 text-green-500" />,
-  "उद्यामी योजना के लिए आवेदन कैसे करें?": <Banknote className="mr-2 text-blue-500" />,
-  "उद्यामी योजना से क्या लाभ प्राप्त होते हैं?": <GraduationCap className="mr-2 text-purple-500" />,
-  "उद्यामी योजना के बारे में अधिक जानकारी कहाँ प्राप्त करें?": <Globe className="mr-2 text-teal-500" />,
-  "उद्यामी योजना में पीएमईजीपी की भूमिका क्या है?": <Building2 className="mr-2 text-red-500" />,
-  "How does Udyami Yojna support digital initiatives?": <Heart className="mr-2 text-pink-500" />,
-  "What training and mentorship opportunities does Udyami Yojna offer?": <Briefcase className="mr-2 text-indigo-500" />,
-  "How is Udyami Yojna evaluated and ranked?": <GraduationCap className="mr-2 text-orange-500" />,
+  "Who is eligible for Udyami Yojna?": (
+    <Briefcase className="mr-2 text-green-500" />
+  ),
+  "उद्यामी योजना के लिए आवेदन कैसे करें?": (
+    <Banknote className="mr-2 text-blue-500" />
+  ),
+  "उद्यामी योजना से क्या लाभ प्राप्त होते हैं?": (
+    <GraduationCap className="mr-2 text-purple-500" />
+  ),
+  "उद्यामी योजना के बारे में अधिक जानकारी कहाँ प्राप्त करें?": (
+    <Globe className="mr-2 text-teal-500" />
+  ),
+  "उद्यामी योजना में पीएमईजीपी की भूमिका क्या है?": (
+    <Building2 className="mr-2 text-red-500" />
+  ),
+  "How does Udyami Yojna support digital initiatives?": (
+    <Heart className="mr-2 text-pink-500" />
+  ),
+  "What training and mentorship opportunities does Udyami Yojna offer?": (
+    <Briefcase className="mr-2 text-indigo-500" />
+  ),
+  "How is Udyami Yojna evaluated and ranked?": (
+    <GraduationCap className="mr-2 text-orange-500" />
+  ),
 };
 
 function InputField() {
@@ -89,7 +105,11 @@ function InputField() {
               onChange={handleInputValue}
               className={`h-12 w-96 pl-12 pr-10 rounded-xl font-normal text-[#3b3b3b]
                 placeholder-[#393838] bg-[#f7f7f7] border-2  
-                ${isFocused ? "border-[#9d9b9b] ring-1 ring-[#fffefe]" : "border-[#e7e4e4]"}`}
+                ${
+                  isFocused
+                    ? "border-[#9d9b9b] ring-1 ring-[#fffefe]"
+                    : "border-[#e7e4e4]"
+                }`}
               type="text"
               placeholder="Search here..."
               autoComplete="off"
@@ -126,16 +146,22 @@ function InputField() {
             transition={{ duration: 0.4 }}
             className="mt-4 w-96 text-sm text-gray-700 text-center px-4"
           >
-      <p className="mt-10 text-base max-w-4xl mx-auto">
-  <strong className="text-xl font-semibold">Udyami Yojna</strong> is a government initiative to support{' '}
-  <span className="font-medium text-gray-800 text-lg">aspiring entrepreneurs</span> by offering{' '}
-  <strong className="text-lg font-semibold">financial aid</strong>,{' '}
-  <strong className="text-lg font-semibold">training</strong>, and{' '}
-  <strong className="text-lg font-semibold">mentorship</strong>. 
-  Use the search bar above to{' '}
-  <span className="font-medium text-gray-700 text-lg">explore more</span>.
-</p>
-
+            <p className="mt-10 text-base max-w-4xl mx-auto">
+              <strong className="text-xl font-semibold">Udyami Yojna</strong> is
+              a government initiative to support{" "}
+              <span className="font-medium text-gray-800 text-lg">
+                aspiring entrepreneurs
+              </span>{" "}
+              by offering{" "}
+              <strong className="text-lg font-semibold">financial aid</strong>,{" "}
+              <strong className="text-lg font-semibold">training</strong>, and{" "}
+              <strong className="text-lg font-semibold">mentorship</strong>. Use
+              the search bar above to{" "}
+              <span className="font-medium text-gray-700 text-lg">
+                explore more
+              </span>
+              .
+            </p>
           </motion.div>
         )}
 

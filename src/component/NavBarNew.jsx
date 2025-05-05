@@ -40,18 +40,19 @@ const NavBarNew = () => {
             </div>
 
             <div className="hidden lg:flex lg:gap-x-12">
-              {menuLinks.map(link => (
-                <ScrollLink
-                  key={link.to}
-                  to={link.to}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                  className="text-sm font-semibold leading-6 text-white cursor-pointer hover:text-gray-200"
-                >
-                  <RouterLink to="/">{link.label}</RouterLink>
-                </ScrollLink>
-              ))}
+            {menuLinks.map(link => (
+  <ScrollLink
+    key={link.to}
+    to={link.to}
+    smooth={true}
+    offset={-50}
+    duration={500}
+    className="text-sm font-semibold leading-6 text-white cursor-pointer hover:text-gray-200"
+  >
+    {link.label}
+  </ScrollLink>
+))}
+
               {staticLinks.map(link => (
                 <RouterLink
                   key={link.to}
