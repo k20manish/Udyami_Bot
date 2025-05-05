@@ -127,7 +127,7 @@ function InputField() {
             className="mt-4 w-96 text-sm text-gray-700 text-center px-4"
           >
       <p className="mt-10 text-base max-w-4xl mx-auto">
-  <strong className="text-2xl font-semibold">Udyami Yojna</strong> is a government initiative to support{' '}
+  <strong className="text-xl font-semibold">Udyami Yojna</strong> is a government initiative to support{' '}
   <span className="font-medium text-gray-800 text-lg">aspiring entrepreneurs</span> by offering{' '}
   <strong className="text-lg font-semibold">financial aid</strong>,{' '}
   <strong className="text-lg font-semibold">training</strong>, and{' '}

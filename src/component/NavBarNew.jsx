@@ -1,23 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 
 const NavBarNew = () => {
   const [sticky, setSticky] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       setSticky(window.scrollY > 50);
-      if (window.scrollY > lastScrollY) setVisible(false);
-      else setVisible(true);
-      setLastScrollY(window.scrollY);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const toggleMenu = () => setMobileMenu(prev => !prev);
 
@@ -36,7 +31,7 @@ const NavBarNew = () => {
   return (
     <div className={`container ${sticky ? "dark-nav" : ""}`}>
       <div className={`transition-shadow duration-300 ${sticky ? "bg-[#3f1063] shadow-lg" : "bg-[#3f1063]"}`}>
-        <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`}>
+        <header className="fixed inset-x-0 top-0 z-50 transition-all duration-300 translate-y-0">
           <nav className={`flex items-center justify-between h-16 p-6 lg:px-8 ${sticky ? "bg-[#ed71c4]" : "bg-[#ed71c4]"}`}>
             <div className="flex lg:flex-1">
               <RouterLink onClick={() => scroll.scrollToTop()} to="/" className="-m-1.5 p-1.5 cursor-pointer">
