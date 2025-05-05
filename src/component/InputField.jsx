@@ -52,10 +52,9 @@ function InputField() {
     setTriggeredQuery(query);
   };
 
-  // Handle the back action to hide chatbot and show search box
   const handleBack = () => {
     setSearch(false);
-    setValue(""); // Optional: Clear search input when going back
+    setValue("");
   };
 
   useEffect(() => {
@@ -116,6 +115,27 @@ function InputField() {
               src={closeIcon}
               alt="close"
             />
+          </motion.div>
+        )}
+
+        {/* Informational Text about Udyami Yojna */}
+        {!isFocused && !search && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mt-4 w-96 text-sm text-gray-700 text-center px-4"
+          >
+      <p className="mt-10 text-base max-w-4xl mx-auto">
+  <strong className="text-2xl font-semibold">Udyami Yojna</strong> is a government initiative to support{' '}
+  <span className="font-medium text-gray-800 text-lg">aspiring entrepreneurs</span> by offering{' '}
+  <strong className="text-lg font-semibold">financial aid</strong>,{' '}
+  <strong className="text-lg font-semibold">training</strong>, and{' '}
+  <strong className="text-lg font-semibold">mentorship</strong>. 
+  Use the search bar above to{' '}
+  <span className="font-medium text-gray-700 text-lg">explore more</span>.
+</p>
+
           </motion.div>
         )}
 

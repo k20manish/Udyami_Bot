@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import UserProfileHeader from "./UserProfileHeader";
 import LightOn from "../assets/LightOn.png";
 import LightbulbOff from "../assets/LightOff.png";
+import { motion } from "framer-motion";
 
 function Chatbot({ initialQuery, onBack }) {
   const [messages, setMessages] = useState([]);
@@ -128,7 +129,11 @@ function Chatbot({ initialQuery, onBack }) {
   }, []);
 
   return (
-    <div className="rounded-lg shadow-md w-[350px] flex flex-col h-[500px] bg-[#ffffff] mb-10 mt-20">
+    <motion.div 
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    className="rounded-lg shadow-md w-[350px] flex flex-col h-[500px] bg-[#ffffff] mb-10 mt-20">
       {/* Header */}
       <div className="w-full h-16 flex-shrink-0 relative rounded-t-lg shadow-sm bg-[#ed71c4] flex items-center px-3">
 
@@ -208,7 +213,7 @@ function Chatbot({ initialQuery, onBack }) {
         )}
       </div>
 
-      {/* Input area */}
+      {/* Input area */} 
       <div className="flex items-center mt-4 mb-2 mx-2 space-x-2">
         <input
           type="text"
@@ -234,7 +239,7 @@ function Chatbot({ initialQuery, onBack }) {
           <img className="h-6 w-8" src="\src\assets\back_image.png" alt="send" />
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
