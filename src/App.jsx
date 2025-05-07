@@ -1,25 +1,22 @@
 import React from 'react'
-import InputField from './component/InputField'
-import NavbarNew from './component/NavBarNew'
-import Header from './component/Header'
+import AboutUs from './component/AboutUs'
+import Contact from './component/Contact'
 import Home from './component/Home'
-import { Route, Routes} from 'react-router-dom'
+import NavBarNew  from './component/NavBarNew'
+import { Route, Routes, Router} from 'react-router-dom'
  
 
 
 function App() {
   return (
-    <div>
-      {/* <Header/> */}
-      {/* <NavbarNew/> */}
-       <Home/>
-      {/* <InputField/> */}
-      {/* <Routes>
-  <Route path="/input" element={<InputHandle />} />
-  <Route path="/chat" element={<Chatbot />} />
-</Routes> */}
-       
-    </div>
+    <>
+      <NavBarNew />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Contact" element={<Contact />} />
+      </Routes>
+    </>
   )
 }
 

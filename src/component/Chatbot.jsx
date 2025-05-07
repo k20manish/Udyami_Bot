@@ -139,13 +139,14 @@ function Chatbot({ initialQuery, onBack }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="rounded-lg shadow-md w-[350px] flex flex-col h-[500px] bg-[#ffffff] mb-10 mt-20"
+      className="rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[670px] h-[485px] bg-[#ffffff] mb-10 sm:mt-12 mt-0 sm:py-20"
+
     >
       {/* Header */}
-      <div className="w-full h-16 flex-shrink-0 relative rounded-t-lg shadow-sm bg-[#ed71c4] flex items-center px-3">
+      <div className="w-full sm:h-28 h-24  relative  rounded-t-lg shadow-sm bg-[#ed71c4] flex items-center px-4">
         <button onClick={onBack}>
           <img
             src="\src\assets\back.png"
@@ -169,65 +170,65 @@ function Chatbot({ initialQuery, onBack }) {
       <UserProfileHeader />
 
       {/* Scrollable chat area */}
-      <div
-        ref={chatContainerRef}
-        className="flex-grow overflow-y-auto mb-1 pr-2 mt-3 rounded-lg"
-      >
-        {messages.map((msg, i) => (
+     <div
+      ref={chatContainerRef}
+      className="flex-grow overflow-y-auto mb-1 pr-2 sm:mt-3 mt-0 rounded-lg"
+    >
+      {messages.map((msg, i) => (
+        <div
+          key={i}
+          className={`mb-1 flex ${
+            msg.type === "user"
+              ? "justify-end sm:ml-10 ml-2 mb-2"
+              : "justify-start sm:mr-10 mr-2 ml-2"
+          }`}
+        >
           <div
-            key={i}
-            className={`mb-1 flex ${
-              msg.type === "user"
-                ? "justify-end ml-20 mb-2"
-                : "justify-start mr-20 ml-4"
-            }`}
+            className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
+            style={{
+              backgroundColor: msg.type === "user" ? "#bcaded" : "#f77ccc",
+              maxWidth: "80%",
+              wordBreak: "break-word",
+              color: "black",
+            }}
           >
-            <div
-              className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
-              style={{
-                backgroundColor: msg.type === "user" ? "#bcaded" : "#f77ccc",
-                maxWidth: "100%",
-                wordBreak: "break-word",
-                color: "black",
-              }}
-            >
-              {msg.type === "bot" ? (
-                <ReactMarkdown
-                  components={{
-                    ol: ({ children }) => (
-                      <ol className="list-decimal pl-5 my-2">{children}</ol>
-                    ),
-                    ul: ({ children }) => (
-                      <ul className="list-disc pl-5 my-2">{children}</ul>
-                    ),
-                    li: ({ children }) => <li className="mb-1">{children}</li>,
-                    strong: ({ children }) => (
-                      <strong className="font-semibold">{children}</strong>
-                    ),
-                    p: ({ children }) => <p className="mb-2">{children}</p>,
-                  }}
-                >
-                  {msg.text}
-                </ReactMarkdown>
-              ) : (
-                msg.text
-              )}
-              <span className="text-xs text-white mt-1 self-end">
-                {msg.timestamp}
-              </span>
-            </div>
+            {msg.type === "bot" ? (
+              <ReactMarkdown
+                components={{
+                  ol: ({ children }) => (
+                    <ol className="list-decimal pl-5 my-2">{children}</ol>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="list-disc pl-5 my-2">{children}</ul>
+                  ),
+                  li: ({ children }) => <li className="mb-1">{children}</li>,
+                  strong: ({ children }) => (
+                    <strong className="font-semibold">{children}</strong>
+                  ),
+                  p: ({ children }) => <p className="mb-2">{children}</p>,
+                }}
+              >
+                {msg.text}
+              </ReactMarkdown>
+            ) : (
+              msg.text
+            )}
+            <span className="text-xs text-white mt-1 self-end">
+              {msg.timestamp}
+            </span>
           </div>
-        ))}
+        </div>
+      ))}
 
-        {loading && (
-          <div className="text-left italic w-fit bg-[#f77ccc] rounded-md px-3 py-1 text-sm ml-2 text-white">
-            thinking...
-          </div>
-        )}
-      </div>
+      {loading && (
+        <div className="text-left italic w-fit bg-[#f77ccc] rounded-md px-3 py-1 text-sm ml-2 text-white">
+          thinking...
+        </div>
+      )}
+    </div>
 
       {/* Input area */}
-      <div className="flex items-center mt-4 mb-2 mx-2 space-x-2">
+      <div className="flex items-center sm:mt-4 mt-0 sm:mb-0 mb-20 mx-2 space-x-2">
         <input
           type="text"
           className="w-full h-8 px-4 text-sm rounded-full border border-[#eb35c1d5] focus:outline-none focus:ring-1 focus:ring-[#ec83dc] transition duration-300 ease-in-out"

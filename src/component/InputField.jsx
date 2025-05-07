@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import closeIcon from "../assets/close.png";
 import searchIcon from "../assets/search-interface-symbol.png";
-import Footer from "./Footer"; // adjust path if needed
+import Footer from "./Footer";
 
 const schemeIcons = {
   "What is Udyami Yojna?": <Lightbulb className="mr-2 text-yellow-500" />,
@@ -57,9 +57,7 @@ function InputField() {
     }
   };
 
-  const handleInputValue = (e) => {
-    setValue(e.target.value);
-  };
+  const handleInputValue = (e) => setValue(e.target.value);
 
   const handleSuggestionSelect = (query) => {
     setValue(query);
@@ -85,45 +83,48 @@ function InputField() {
 
   return (
     <div className="bg-white h-[575px] w-full flex justify-center items-center overflow-hidden">
-      <div className="relative w-fit h-fit flex flex-col items-center rounded-3xl">
-        {/* Input Box */}
+      <div className="relative w-full sm:w-fit lg:w-3/4 xl:w-1/2 h-fit flex flex-col items-center rounded-3xl sm:mt-0 mt-72">
+        {/* Input & Suggestions wrapper */}
         {!search && (
           <motion.div
+            ref={wrapperRef}
             initial={{ y: 0, scale: 1 }}
-            animate={isFocused ? { y: -200, scale: 1.05 } : { y: 0, scale: 1 }}
+            animate={isFocused
+              ? window.innerWidth < 640 // Check if screen width is less than 640px (mobile view)
+                ? { y: -150, scale: 1.05 }
+                : { y: -200, scale: 1.05 }
+              : { y: 0, scale: 1 }}
             transition={{
               type: "tween",
               stiffness: 300,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="w-full flex justify-center items-center relative"
+            className="relative w-[70vw] sm:w-[250px] md:w-[400px] lg:w-[450px] flex flex-col items-center"
           >
+            {/* Input Box */}
             <input
               value={value}
-              ref={wrapperRef}
               onFocus={() => setIsFocused(true)}
               onChange={handleInputValue}
-              className={`h-12 w-96 pl-12 pr-10 rounded-xl font-normal text-[#3b3b3b]
-                placeholder-[#393838] bg-[#f7f7f7] border-2  
-                ${
-                  isFocused
-                    ? "border-[#9d9b9b] ring-1 ring-[#fffefe]"
-                    : "border-[#e7e4e4]"
-                }`}
+              className={`h-12 w-full pl-12 pr-10 rounded-xl font-normal text-[#3b3b3b] 
+              placeholder-[#393838] bg-[#f7f7f7] border-2
+              ${
+                isFocused
+                  ? "border-[#9d9b9b] ring-1 ring-[#fffefe]"
+                  : "border-[#e7e4e4]"
+              }`}
               type="text"
               placeholder="Search here..."
               autoComplete="off"
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSearch();
-                }
+                if (e.key === "Enter") handleSearch();
               }}
             />
 
             {/* Search Icon */}
             <img
               onClick={handleSearch}
-              className="h-5 w-5 absolute left-3.5 top-4 cursor-pointer"
+              className="h-5 w-5 absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer"
               src={searchIcon}
               alt="search"
             />
@@ -131,20 +132,48 @@ function InputField() {
             {/* Close Icon */}
             <img
               onClick={() => setValue("")}
-              className="h-5 w-5 absolute right-4 top-3.5 cursor-pointer"
+              className="h-5 w-5 absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
               src={closeIcon}
               alt="close"
             />
+
+            {/* Suggestions */}
+            {isFocused && (
+              <motion.div
+                initial={{ y: 0, scale: 1 }}
+                animate={
+                  isFocused ? { y: 10, scale: 1.05 } : { y: 0, scale: 1 }
+                }
+                transition={{
+                  type: "tween",
+                  stiffness: 300,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
+                className="absolute top-full left-0 mt-2 bg-[#f7f7f7] shadow-md rounded-xl w-full p-2 z-20
+                           max-h-[60vh] overflow-y-auto sm:overflow-hidden"
+              >
+                {Object.entries(schemeIcons).map(([question, icon]) => (
+                  <div
+                    key={question}
+                    onMouseDown={() => handleSuggestionSelect(question)}
+                    className="cursor-pointer hover:bg-[#d5d5d5] text-[#1f1e1f] text-sm p-2 rounded flex items-center"
+                  >
+                    {icon}
+                    <span className="ml-2">{question}</span>
+                  </div>
+                ))}
+              </motion.div>
+            )}
           </motion.div>
         )}
 
-        {/* Informational Text about Udyami Yojna */}
+        {/* Info Text */}
         {!isFocused && !search && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="mt-4 w-96 text-sm text-gray-700 text-center px-4"
+            className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 w-full sm:w-96 text-sm text-gray-700 text-center px-4"
           >
             <p className="mt-10 text-base max-w-4xl mx-auto">
               <strong className="text-xl font-semibold">Udyami Yojna</strong> is
@@ -162,31 +191,6 @@ function InputField() {
               </span>
               .
             </p>
-          </motion.div>
-        )}
-
-        {/* Suggestions Dropdown */}
-        {isFocused && (
-          <motion.div
-            initial={{ y: 0, scale: 1 }}
-            animate={isFocused ? { y: -190, scale: 1.05 } : { y: 0, scale: 1 }}
-            transition={{
-              type: "smooth",
-              stiffness: 300,
-              ease: [0, 0.71, 0.2, 1.01],
-            }}
-            className="absolute top-full mt-2 bg-[#f7f7f7] shadow-md rounded-xl w-96 p-2 z-10 "
-          >
-            {Object.entries(schemeIcons).map(([question, icon]) => (
-              <div
-                key={question}
-                onMouseDown={() => handleSuggestionSelect(question)}
-                className="cursor-pointer hover:bg-[#d5d5d5] text-[#1f1e1f] text-sm p-2 rounded flex items-center"
-              >
-                {icon}
-                <span className="ml-2">{question}</span>
-              </div>
-            ))}
           </motion.div>
         )}
 
