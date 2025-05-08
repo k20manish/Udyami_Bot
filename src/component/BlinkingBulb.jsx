@@ -6,8 +6,8 @@ const BlinkingBulb = ({ isUserTyping, isBotThinking }) => {
   const [isBlinking, setIsBlinking] = useState(false);
 
   useEffect(() => {
-    console.log("isBotThinking:", isBotThinking);
-    console.log("isBlinking:", isBlinking);
+    // console.log("isBotThinking:", isBotThinking);
+    // console.log("isBlinking:", isBlinking);
   
     let interval;
     if (isBotThinking) {

@@ -52,7 +52,7 @@ function Chatbot({ initialQuery, onBack }) {
         },
       ]);
       setLoading(true);
-      console.log("Setting isThinking to true");
+      // console.log("Setting isThinking to true");
     setIsThinking(true);
 
       if (abortControllerRef.current) {
@@ -108,7 +108,7 @@ function Chatbot({ initialQuery, onBack }) {
       }
 
       setLoading(false);
-      console.log("Setting isThinking to false");
+      // console.log("Setting isThinking to false");
     setIsThinking(false);
     },
     [userId, language]
