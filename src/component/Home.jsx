@@ -26,7 +26,7 @@ const HomePage = () => {
             "linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0))",
         }}
       >
-        <p className="absolute top-36 text-9xl text-gray-100 font-serif">उद्यमी</p>
+        
 
         {/* Left Decorative Images */}
         <div className="absolute left-0 top-1 sm:top-48 flex flex-col items-center scale-75 md:scale-90 sm:ml-2 ml-0  sm:mt-0 mt-8">
