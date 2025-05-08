@@ -20,12 +20,14 @@ const HomePage = () => {
       <NavBarNew />
 
       <div
-        className="relative  px-4 sm:px-6 pb-0 sm:pb-0 lg:px-8 h-screen flex flex-col items-center justify-center overflow-hidden py-0"
+        className="relative px-4 sm:px-6 pb-0 sm:pb-0 lg:px-8 h-screen flex flex-col items-center justify-center overflow-hidden py-0"
         style={{
           background:
             "linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0))",
         }}
       >
+        <p className="absolute top-36 text-9xl text-gray-100 font-serif">उद्यमी</p>
+
         {/* Left Decorative Images */}
         <div className="absolute left-0 top-1 sm:top-48 flex flex-col items-center scale-75 md:scale-90 sm:ml-2 ml-0  sm:mt-0 mt-8">
           <motion.img

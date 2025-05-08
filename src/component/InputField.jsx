@@ -82,7 +82,7 @@ function InputField() {
   }, []);
 
   return (
-    <div className="bg-white h-[575px] w-full flex justify-center items-center overflow-hidden">
+    <div className="bg-white h-[675px] w-full flex justify-center items-center overflow-hidden">
       <div className="relative w-full sm:w-fit lg:w-3/4 xl:w-1/2 h-fit flex flex-col items-center rounded-3xl sm:mt-0 mt-72">
         {/* Input & Suggestions wrapper */}
         {!search && (

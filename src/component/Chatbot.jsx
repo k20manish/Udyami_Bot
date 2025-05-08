@@ -2,11 +2,12 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 import UserProfileHeader from "./UserProfileHeader";
-import LightOn from "../assets/LightOn.png";
-import LightbulbOff from "../assets/LightOff.png";
+ 
 import { motion } from "framer-motion";
+import BlinkingBulb from "./BlinkingBulb"
 
 function Chatbot({ initialQuery, onBack }) {
+  const [isThinking, setIsThinking] = useState(false);
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState(
@@ -50,8 +51,9 @@ function Chatbot({ initialQuery, onBack }) {
           timestamp: new Date().toLocaleTimeString(),
         },
       ]);
-
       setLoading(true);
+      console.log("Setting isThinking to true");
+    setIsThinking(true);
 
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
@@ -106,6 +108,8 @@ function Chatbot({ initialQuery, onBack }) {
       }
 
       setLoading(false);
+      console.log("Setting isThinking to false");
+    setIsThinking(false);
     },
     [userId, language]
   );
@@ -142,29 +146,26 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[670px] h-[485px] bg-[#ffffff] mb-10 sm:mt-12 mt-0 sm:py-20"
+      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[600px] h-[500px] bg-[#ffffff] sm:mb-0 mb-10 sm:mt-2 mt-0 "
 
     >
       {/* Header */}
-      <div className="w-full sm:h-28 h-24  relative  rounded-t-lg shadow-sm bg-[#ed71c4] flex items-center px-4">
+      <div className=" w-full sm:h-12 h-8 absoulte  rounded-t-lg shadow-sm bg-[#719ced] flex items-center ">
         <button onClick={onBack}>
           <img
             src="\src\assets\back.png"
             alt="Back"
-            className="w-5 h-5 cursor-pointer"
+            className="w-5 h-5 cursor-pointer ml-2"
           />
         </button>
         <h1 className="absolute left-1/2 transform -translate-x-1/2 text-lg font-semibold text-[#000000] font-sans">
           Udyami Bot
         </h1>
         {/* Bulb icon shows based on typing state */}
-        <div className="absolute right-3">
-          {isTyping ? (
-            <img className="h-8 w-8" src={LightOn} alt="Typing..." />
-          ) : (
-            <img className="h-8 w-8" src={LightbulbOff} alt="Idle..." />
-          )}
-        </div>
+        
+        <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
+
+        
       </div>
 
       <UserProfileHeader />
@@ -172,7 +173,8 @@ function Chatbot({ initialQuery, onBack }) {
       {/* Scrollable chat area */}
      <div
       ref={chatContainerRef}
-      className="flex-grow overflow-y-auto mb-1 pr-2 sm:mt-3 mt-0 rounded-lg"
+      className="flex-grow basis-[90%] overflow-y-auto mb-1 pr-2 sm:mt-3 mt-0 rounded-lg"
+      
     >
       {messages.map((msg, i) => (
         <div
@@ -186,8 +188,8 @@ function Chatbot({ initialQuery, onBack }) {
           <div
             className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
             style={{
-              backgroundColor: msg.type === "user" ? "#bcaded" : "#f77ccc",
-              maxWidth: "80%",
+              backgroundColor: msg.type === "user" ? "#abc5f5" : "#a1a3a6",
+              maxWidth: "90%",
               wordBreak: "break-word",
               color: "black",
             }}
@@ -221,17 +223,17 @@ function Chatbot({ initialQuery, onBack }) {
       ))}
 
       {loading && (
-        <div className="text-left italic w-fit bg-[#f77ccc] rounded-md px-3 py-1 text-sm ml-2 text-white">
+        <div className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white">
           thinking...
         </div>
       )}
     </div>
 
       {/* Input area */}
-      <div className="flex items-center sm:mt-4 mt-0 sm:mb-0 mb-20 mx-2 space-x-2">
+      <div className="flex items-center sm:mt-0 mt-0 sm:mb-2 mb-12 mx-2 space-x-2">
         <input
           type="text"
-          className="w-full h-8 px-4 text-sm rounded-full border border-[#eb35c1d5] focus:outline-none focus:ring-1 focus:ring-[#ec83dc] transition duration-300 ease-in-out"
+          className="w-full h-8 px-4 text-sm rounded-full border border-[#719ced] focus:outline-none focus:ring-1 focus:ring-[#7a9dee] transition duration-300 ease-in-out"
           style={{ backgroundColor: "#f5f5f5", color: "black" }}
           value={userQuery}
           onChange={(e) => {
@@ -248,7 +250,7 @@ function Chatbot({ initialQuery, onBack }) {
         />
         <button
           onClick={handleSendMessage}
-          className="h-8 cursor-pointer px-6 text-sm text-white bg-[#f348b7] rounded-full hover:bg-[#c46da8f7] focus:outline-none transition duration-300 ease-in-out"
+          className="h-8 cursor-pointer px-6 text-sm text-white bg-[#719ced] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
         >
           <img
             className="h-6 w-8"

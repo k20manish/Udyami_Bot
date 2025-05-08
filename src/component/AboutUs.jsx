@@ -1,35 +1,42 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { motion } from 'framer-motion';
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
+
+
   return (
-    <div className="p-8 max-w-4xl mx-auto text-gray-800 mt-10">
-      <h1 className="text-3xl font-bold mb-4 text-[#3f1063]">About UdyamAI</h1>
-      <p className="mb-4">
-        <strong>UdyamAI</strong> is an initiative dedicated to nurturing innovation and entrepreneurship among students, startups, and early-stage ventures. We aim to bridge the gap between ideas and execution by providing a collaborative environment, access to resources, and a network of industry experts.
+    <motion.div
+    className="max-w-4xl mx-auto p-6 mt-16 bg-white rounded-2xl shadow-lg "
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+      <button
+  onClick={() => navigate("/")}
+  className="absolute top-22 left-10 flex items-center text-[#3f1063] hover:text-[#ed71c4] p-2"
+>
+  <ArrowLeft className="mr-2" />
+  Back
+</button>
+    <h1 className="text-3xl font-bold mb-4 text-center">About MMUY 2024-25</h1>
+    <p className="text-gray-700 text-lg mb-4">
+        The Mukhyamantri Udyami Yojana (MUY) is an initiative by the government aimed at empowering entrepreneurs and boosting small and medium-sized enterprises (SMEs). 
+        This program focuses on providing financial assistance, mentorship, and support to aspiring business owners, enabling them to establish and expand their businesses.
       </p>
-      <h2 className="text-xl font-semibold mt-6 mb-2 text-[#ed71c4]">Our Schemes & Support</h2>
-      <ul className="list-disc list-inside space-y-2">
-        <li>
-          <strong>Startup Mentorship:</strong> Get personalized guidance from industry mentors, technologists, and domain experts.
-        </li>
-        <li>
-          <strong>Workspace Facilities:</strong> Access modern coworking spaces, high-speed internet, and conference rooms tailored for startups.
-        </li>
-        <li>
-          <strong>Incubation Support:</strong> Selected startups are provided incubation support including seed funding, prototyping aid, and business development.
-        </li>
-        <li>
-          <strong>Events & Hackathons:</strong> Participate in entrepreneurship events, coding competitions, and workshops organized throughout the year.
-        </li>
-        <li>
-          <strong>Networking Opportunities:</strong> Connect with investors, entrepreneurs, and ecosystem enablers via our networking events.
-        </li>
-      </ul>
-      <p className="mt-4">
-        At UdyamAI, we believe in empowering youth with tools, training, and a community that inspires growth, problem-solving, and impact-driven innovation.
+      <p className="text-gray-700 text-lg mb-4">
+        Through a structured application and selection process, the scheme identifies promising entrepreneurs and grants them the necessary funding and resources to succeed. 
+        MUY is committed to fostering economic growth, creating job opportunities, and driving innovation at the grassroots level.
       </p>
-    </div>
+      <p className="text-gray-700 text-lg">
+        Join us in building a thriving entrepreneurial ecosystem, where ideas are transformed into reality, and local businesses contribute to the economic development of the region.
+      </p>
+  </motion.div>
   );
 };
 
 export default AboutUs;
+""

@@ -4,8 +4,8 @@ import AboutUs from "./AboutUs";
 
 const NavBarNew = () => {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-[#3f1063] shadow-md">
-      <nav className="flex items-center justify-between h-16 p-6 lg:px-8 bg-[#ed71c4]">
+    <header className="fixed inset-x-0 top-0 z-50 bg-indigo-600 shadow-md">
+      <nav className="flex items-center justify-between h-16 p-6 lg:px-8 bg-[#7965ee]">
         <div className="flex lg:flex-1">
           <RouterLink to="/" className="-m-1.5 p-1.5">
             <img
