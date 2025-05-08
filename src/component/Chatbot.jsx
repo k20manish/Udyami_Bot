@@ -150,7 +150,7 @@ function Chatbot({ initialQuery, onBack }) {
 
     >
       {/* Header */}
-      <div className=" w-full sm:h-12 h-8 absoulte  rounded-t-lg shadow-sm bg-[#719ced] flex items-center ">
+      <div className=" w-full sm:h-14 h-12 absoulte  rounded-t-lg shadow-sm bg-[#719ced] flex items-center ">
         <button onClick={onBack}>
           <img
             src="\src\assets\back.png"
@@ -158,8 +158,8 @@ function Chatbot({ initialQuery, onBack }) {
             className="w-5 h-5 cursor-pointer ml-2"
           />
         </button>
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-lg font-semibold text-[#000000] font-sans">
-          Udyami Bot
+        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-lg font-semibold text-white font-sans">
+          Hello Udyami
         </h1>
         {/* Bulb icon shows based on typing state */}
         
@@ -173,7 +173,7 @@ function Chatbot({ initialQuery, onBack }) {
       {/* Scrollable chat area */}
      <div
       ref={chatContainerRef}
-      className="flex-grow basis-[90%] overflow-y-auto mb-1 pr-2 sm:mt-3 mt-0 rounded-lg"
+      className="flex-grow basis-[90%] overflow-y-auto mb-2 pr-2 sm:mt-3 mt-0 rounded-lg"
       
     >
       {messages.map((msg, i) => (
