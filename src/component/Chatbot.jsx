@@ -23,6 +23,23 @@ function Chatbot({ initialQuery, onBack }) {
   const [isTyping, setIsTyping] = useState(false);
   const typingTimeoutRef = useRef(null);
 
+  const handleRefresh = () => {
+  if (abortControllerRef.current) {
+    abortControllerRef.current.abort();
+  }
+
+  setMessages([]);
+  setUserQuery("");
+  setIsThinking(false);
+  setLoading(false);
+  setUserId("");
+  localStorage.removeItem("user_id");
+
+  // prevent initialQuery from re-triggering
+  hasHandledInitialQuery.current = true;
+};
+
+
   const navigate = useNavigate();
 
   const formatResponseAsMarkdown = (text) => {
@@ -35,7 +52,7 @@ function Chatbot({ initialQuery, onBack }) {
       return lines
         .map((line) => `- ${line.replace(/^[-*•]\s+/, "")}`)
         .join("\n");
-
+    
     return text;
   };
 
@@ -165,9 +182,9 @@ function Chatbot({ initialQuery, onBack }) {
         <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
 
         {/* refresh button */}
-        <button>
+        <button onClick={handleRefresh}>
           <img
-            className="sm:h-8 h-6 sm:w-8 w-6 absolute right-12 top-1.5 flex justify-end items-end"
+            className="sm:h-8 h-6 sm:w-8 w-6 absolute right-12 top-1.5 cursor-pointer"
             src="\src\assets\refresh.png"
             alt="refresh"
           />
@@ -191,7 +208,7 @@ function Chatbot({ initialQuery, onBack }) {
             }`}
           >
             <div
-              className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
+              className='px-3 py-2 rounded-lg text-sm flex flex-col'
               style={{
                 backgroundColor: msg.type === "user" ? "#abc5f5" : "#e6e6e6",
                 maxWidth: "90%",
