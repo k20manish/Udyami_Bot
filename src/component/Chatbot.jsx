@@ -141,12 +141,14 @@ function Chatbot({ initialQuery, onBack }) {
     return () => clearTimeout(typingTimeoutRef.current);
   }, []);
 
+  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[600px] h-[500px] bg-[#ffffff] sm:mb-0 mb-10 sm:mt-2 mt-0 "
+      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[650px] h-[500px] bg-[#ffffff] sm:mb-0 mb-10 sm:mt-0 mt-16 "
 
     >
       {/* Header */}
@@ -230,7 +232,7 @@ function Chatbot({ initialQuery, onBack }) {
     </div>
 
       {/* Input area */}
-      <div className="flex items-center sm:mt-0 mt-0 sm:mb-2 mb-12 mx-2 space-x-2">
+      <div className="flex items-center sm:mt-0 mt-0 sm:mb-16 mb-20 mx-2 space-x-2">
         <input
           type="text"
           className="w-full h-8 px-4 text-sm rounded-full border border-[#719ced] focus:outline-none focus:ring-1 focus:ring-[#7a9dee] transition duration-300 ease-in-out"

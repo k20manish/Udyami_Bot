@@ -83,10 +83,10 @@ function InputField() {
 
   return (
     <div className="bg-white h-[675px] w-full flex justify-center items-center overflow-hidden">
-     {isFocused && !search
-       ? "" :<p className="absolute sm:top-32 top-72 sm:text-9xl text-8xl text-gray-300 font-serif text-shadow-3xl text-shadow-gray-500">उद्यमी</p> 
+     {isFocused || search
+       ? "" :<p className="absolute sm:top-24 top-64 sm:text-9xl text-8xl text-gray-300 font-serif text-shadow-3xl text-shadow-gray-500">उद्यमी</p> 
      }
-      <div className="relative w-full sm:w-fit lg:w-3/4 xl:w-1/2 h-fit flex flex-col items-center rounded-3xl sm:mt-0 mt-72">
+      <div className="relative w-full sm:w-fit lg:w-3/4 xl:w-1/2 h-fit flex flex-col items-center rounded-3xl sm:mt-24 mt-72">
         {/* Input & Suggestions wrapper */}
         {!search &&  (
           <motion.div
@@ -94,8 +94,8 @@ function InputField() {
             initial={{ y: 0, scale: 1 }}
             animate={isFocused
               ? window.innerWidth < 640 // Check if screen width is less than 640px (mobile view)
-                ? { y: -180, scale: 1.05 }
-                : { y: -200, scale: 1.05 }
+                ? { y: -170, scale: 1.05 }
+                : { y: -240, scale: 1.05 }
               : { y: 0, scale: 1 }}
             transition={{
               type: "tween",
