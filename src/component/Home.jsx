@@ -63,7 +63,7 @@ const HomePage = () => {
         </div>
 
         {/* Right Decorative Images */}
-        <div className="absolute right-0 top-1 sm:top-48 flex flex-col items-center scale-75 md:scale-90 sm:mr-2 mr-0 sm:mt-0 mt-8">
+        <div className="absolute right-4 top-1 sm:top-48 flex flex-col items-center scale-75 md:scale-90 sm:mr-2 mr-0 sm:mt-0 mt-8">
           <motion.img
             src="/src/assets/5.png"
             alt="Right Top"
