@@ -99,7 +99,7 @@ const HomePage = () => {
 
         {/* Input Field */}
         <motion.div
-          variants={fadeIn}
+          // variants={fadeIn}
           initial="hidden"
           animate="visible"
           className={`w-[90%] sm:w-full max-w-md sm:max-w-2xl transition-all duration-500 ease-in-out ${

@@ -173,7 +173,7 @@ function InputField() {
         {/* Info Text */}
         {!isFocused && !search && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="mt-1 sm:mt-6 md:mt-8 lg:mt-10 w-full sm:w-96 text-sm text-gray-700 text-center px-4"
