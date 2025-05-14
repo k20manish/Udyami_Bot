@@ -33,7 +33,7 @@ const HomePage = () => {
           <motion.img
             src="/src/assets/cm2.png"
             alt="Left Top"
-            className="object-cover w-20 sm:w-24 h-20 sm:h-24 m-1"
+            className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}
             initial="hidden"
             animate="visible"
@@ -48,7 +48,7 @@ const HomePage = () => {
           <motion.img
             src="/src/assets/minister.png"
             alt="Left Bottom"
-            className="object-cover w-20 sm:w-24 h-20 sm:h-24 m-1"
+            className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}
             initial="hidden"
             animate="visible"
@@ -67,7 +67,7 @@ const HomePage = () => {
           <motion.img
             src="/src/assets/5.png"
             alt="Right Top"
-            className="object-cover w-20 sm:w-24 h-20 sm:h-24 m-1"
+            className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}
             initial="hidden"
             animate="visible"
@@ -83,7 +83,7 @@ const HomePage = () => {
           <motion.img
             src="/src/assets/4.png"
             alt="Right Bottom"
-            className="object-cover w-20 sm:w-24 h-20 sm:h-24 m-1"
+            className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}
             initial="hidden"
             animate="visible"
