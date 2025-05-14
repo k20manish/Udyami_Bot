@@ -163,7 +163,7 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[650px] h-[430px] bg-[#ffffff] sm:mb-20 mb-20 sm:mt-4 mt-0 "
+      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[80vh] h-[60vh] bg-[#ffffff] sm:mb-20 mb-20 sm:mt-4 mt-0 "
     >
       {/* Header */}
       <div className=" w-full sm:h-14 h-12 absoulte  rounded-t-lg shadow-sm bg-[#719ced] flex items-center ">
