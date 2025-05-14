@@ -82,7 +82,7 @@ function InputField() {
   }, []);
 
   return (
-    <div className="bg-white h-[675px] w-full flex justify-center items-center overflow-hidden">
+    <div className=" bg-[#ffffff] h-[675px] w-full flex justify-center items-center overflow-hidden">
      {isFocused || search
        ? "" :<p className="absolute sm:top-24 top-64 sm:text-9xl text-8xl text-gray-300 font-serif text-shadow-3xl text-shadow-gray-500">उद्यमी</p> 
      }
@@ -176,7 +176,7 @@ function InputField() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 w-full sm:w-96 text-sm text-gray-700 text-center px-4"
+            className="mt-1 sm:mt-6 md:mt-8 lg:mt-10 w-full sm:w-96 text-sm text-gray-700 text-center px-4"
           >
             <p className="mt-10 text-base max-w-4xl mx-auto">
               <strong className="text-xl font-semibold">Udyami Yojna</strong> is

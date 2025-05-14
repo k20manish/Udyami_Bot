@@ -24,15 +24,15 @@ const BlinkingBulb = ({ isUserTyping, isBotThinking }) => {
   return (
     <div className="absolute right-3">
       {isUserTyping ? (
-        <img className="h-8 w-8" src={LightbulbOff} alt="Typing..." />
+        <img className="am:h-8 h-6 sm:w-8 w-6" src={LightbulbOff} alt="Typing..." />
       ) : isBotThinking ? (
         <img
-          className="h-8 w-8"
+          className="sm:h-8 h-6 sm:w-8 w-6"
           src={isBlinking ? LightOn : LightbulbOff}
           alt="Thinking..."
         />
       ) : (
-        <img className="h-8 w-8" src={LightOn} alt="Response Received" />
+        <img className="sm:h-8 h-6 sm:w-8 w-6" src={LightOn} alt="Response Received" />
       )}
     </div>
   );

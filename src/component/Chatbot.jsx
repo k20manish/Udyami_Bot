@@ -148,7 +148,7 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[650px] h-[500px] bg-[#ffffff] sm:mb-0 mb-10 sm:mt-0 mt-16 "
+      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[550px] h-[380px] bg-[#ffffff] sm:mb-20 mb-14 sm:mt-4 mt-0 "
 
     >
       {/* Header */}
@@ -160,10 +160,10 @@ function Chatbot({ initialQuery, onBack }) {
             className="w-5 h-5 cursor-pointer ml-2"
           />
         </button>
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-lg font-semibold text-white font-sans">
+        <h1 className="absolute left-1/2 transform -translate-x-1/2 sm:text-lg text-md font-semibold text-white font-sans">
           Hello Udyami
         </h1>
-        {/* Bulb icon shows based on typing state */}
+        {/* Bulb icon shows based on typing state */} 
         
         <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
 
@@ -232,7 +232,7 @@ function Chatbot({ initialQuery, onBack }) {
     </div>
 
       {/* Input area */}
-      <div className="flex items-center sm:mt-0 mt-0 sm:mb-16 mb-20 mx-2 space-x-2">
+      <div className="flex items-center sm:mt-0 mt-0 sm:mb-2 mb-4 mx-2 space-x-2">
         <input
           type="text"
           className="w-full h-8 px-4 text-sm rounded-full border border-[#719ced] focus:outline-none focus:ring-1 focus:ring-[#7a9dee] transition duration-300 ease-in-out"

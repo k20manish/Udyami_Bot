@@ -4,11 +4,11 @@ import React from "react";
 const UserProfileHeader = () => {
     const Name = "user"
   return (
-    <div className="flex flex-col items-center  mt-2  rounded-t-xl mb-2 shadow-sm">
+    <div className="flex flex-col items-center  mb-1 shadow-sm">
       <img
         src="\src\assets\user.png"
          alt= "User Avatar"
-        className="sm:w-7 w-4 sm:h-8 h-4 rounded-full object-cover"
+        className="sm:w-7 w-4 sm:h-8 h-4 rounded-full object-cover mt-1"
       />
       <div className="flex flex-col items-center">
         <h2 className="sm:text-lg text-sm font-normal text-black/70">{Name}</h2>
