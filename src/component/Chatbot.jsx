@@ -2,9 +2,9 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 import UserProfileHeader from "./UserProfileHeader";
- 
+
 import { motion } from "framer-motion";
-import BlinkingBulb from "./BlinkingBulb"
+import BlinkingBulb from "./BlinkingBulb";
 
 function Chatbot({ initialQuery, onBack }) {
   const [isThinking, setIsThinking] = useState(false);
@@ -53,7 +53,7 @@ function Chatbot({ initialQuery, onBack }) {
       ]);
       setLoading(true);
       // console.log("Setting isThinking to true");
-    setIsThinking(true);
+      setIsThinking(true);
 
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
@@ -109,7 +109,7 @@ function Chatbot({ initialQuery, onBack }) {
 
       setLoading(false);
       // console.log("Setting isThinking to false");
-    setIsThinking(false);
+      setIsThinking(false);
     },
     [userId, language]
   );
@@ -141,15 +141,12 @@ function Chatbot({ initialQuery, onBack }) {
     return () => clearTimeout(typingTimeoutRef.current);
   }, []);
 
-  
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[550px] h-[380px] bg-[#ffffff] sm:mb-20 mb-14 sm:mt-4 mt-0 "
-
+      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[650px] h-[430px] bg-[#ffffff] sm:mb-20 mb-20 sm:mt-4 mt-0 "
     >
       {/* Header */}
       <div className=" w-full sm:h-14 h-12 absoulte  rounded-t-lg shadow-sm bg-[#719ced] flex items-center ">
@@ -163,73 +160,79 @@ function Chatbot({ initialQuery, onBack }) {
         <h1 className="absolute left-1/2 transform -translate-x-1/2 sm:text-lg text-md font-semibold text-white font-sans">
           Hello Udyami
         </h1>
-        {/* Bulb icon shows based on typing state */} 
-        
+
+        {/* Bulb icon shows based on typing state */}
         <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
 
-        
+        {/* refresh button */}
+        <button>
+          <img
+            className="sm:h-8 h-6 sm:w-8 w-6 absolute right-12 top-1.5 flex justify-end items-end"
+            src="\src\assets\refresh.png"
+            alt="refresh"
+          />
+        </button>
       </div>
 
       <UserProfileHeader />
 
       {/* Scrollable chat area */}
-     <div
-      ref={chatContainerRef}
-      className="flex-grow basis-[90%] overflow-y-auto mb-2 pr-2 sm:mt-3 mt-0 rounded-lg"
-      
-    >
-      {messages.map((msg, i) => (
-        <div
-          key={i}
-          className={`mb-1 flex ${
-            msg.type === "user"
-              ? "justify-end sm:ml-10 ml-2 mb-2"
-              : "justify-start sm:mr-10 mr-2 ml-2"
-          }`}
-        >
+      <div
+        ref={chatContainerRef}
+        className="flex-grow basis-[90%] overflow-y-auto mb-2 pr-2 sm:mt-3 mt-0 rounded-lg"
+      >
+        {messages.map((msg, i) => (
           <div
-            className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
-            style={{
-              backgroundColor: msg.type === "user" ? "#abc5f5" : "#a1a3a6",
-              maxWidth: "90%",
-              wordBreak: "break-word",
-              color: "black",
-            }}
+            key={i}
+            className={`mb-1 flex ${
+              msg.type === "user"
+                ? "justify-end sm:ml-10 ml-2 mb-2"
+                : "justify-start sm:mr-10 mr-2 ml-2"
+            }`}
           >
-            {msg.type === "bot" ? (
-              <ReactMarkdown
-                components={{
-                  ol: ({ children }) => (
-                    <ol className="list-decimal pl-5 my-2">{children}</ol>
-                  ),
-                  ul: ({ children }) => (
-                    <ul className="list-disc pl-5 my-2">{children}</ul>
-                  ),
-                  li: ({ children }) => <li className="mb-1">{children}</li>,
-                  strong: ({ children }) => (
-                    <strong className="font-semibold">{children}</strong>
-                  ),
-                  p: ({ children }) => <p className="mb-2">{children}</p>,
-                }}
-              >
-                {msg.text}
-              </ReactMarkdown>
-            ) : (
-              msg.text
-            )}
-            <span className="text-xs text-white mt-1 self-end">
-              {msg.timestamp}
-            </span>
+            <div
+              className={`px-3 py-2 rounded-lg text-sm flex flex-col`}
+              style={{
+                backgroundColor: msg.type === "user" ? "#abc5f5" : "#e6e6e6",
+                maxWidth: "90%",
+                wordBreak: "break-word",
+                color: "black",
+              }}
+            >
+              {msg.type === "bot" ? (
+                <ReactMarkdown
+                  components={{
+                    ol: ({ children }) => (
+                      <ol className="list-decimal pl-5 my-2">{children}</ol>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="list-disc pl-5 my-2">{children}</ul>
+                    ),
+                    li: ({ children }) => <li className="mb-1">{children}</li>,
+                    strong: ({ children }) => (
+                      <strong className="font-semibold">{children}</strong>
+                    ),
+                    p: ({ children }) => <p className="mb-2">{children}</p>,
+                  }}
+                >
+                  {msg.text}
+                </ReactMarkdown>
+              ) : (
+                msg.text
+              )}
+              <span className="text-xs text-gray-800 mt-1 self-start">
+                {msg.timestamp}
+              </span>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      {loading && (
-        <div className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white">
-          thinking...
-        </div>
-      )}
-    </div>
+        {loading && (
+          <div className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white">
+            thinking...
+          </div>
+        )}
+      </div>
 
       {/* Input area */}
       <div className="flex items-center sm:mt-0 mt-0 sm:mb-2 mb-4 mx-2 space-x-2">
