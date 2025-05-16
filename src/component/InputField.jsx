@@ -84,7 +84,7 @@ function InputField() {
   return (
     <div className=" bg-[#ffffff] h-[768px] w-full flex justify-center items-center overflow-hidden">
      {isFocused || search
-       ? "" :<p className="absolute sm:top-28 top-68 sm:text-9xl text-8xl text-gray-300 font-serif text-shadow-3xl text-shadow-gray-500">उद्यमी</p> 
+       ? "" :<p className="absolute sm:top-28 top-64 sm:text-9xl text-6xl text-gray-300 font-serif text-shadow-3xl text-shadow-gray-500">उद्यमी</p> 
      }
       <div className="relative w-full sm:w-fit lg:w-3/4 xl:w-1/2 h-fit flex flex-col items-center rounded-3xl sm:mt-24 mt-72">
         {/* Input & Suggestions wrapper */}
