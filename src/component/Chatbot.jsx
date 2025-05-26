@@ -79,7 +79,7 @@ function Chatbot({ initialQuery, onBack }) {
 
       try {
         const response = await fetch(
-          "https://chatbot-final-hvuc.onrender.com/chat",
+          "http://127.0.0.1:8000/chat",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -101,6 +101,10 @@ function Chatbot({ initialQuery, onBack }) {
           setUserId(data.user_id);
           localStorage.setItem("user_id", data.user_id);
         }
+          if (data.query_logged)
+        {
+          alert(data.logged_message);
+        }
 
         setMessages((prev) => [
           ...prev,
