@@ -79,7 +79,7 @@ function Chatbot({ initialQuery, onBack }) {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/chat",
+          "https://chatbot-final-hvuc.onrender.com/chat",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -101,10 +101,11 @@ function Chatbot({ initialQuery, onBack }) {
           setUserId(data.user_id);
           localStorage.setItem("user_id", data.user_id);
         }
-          if (data.query_logged)
+        
+        if (data.query_logged)
         {
           alert(data.logged_message);
-        }
+        }
 
         setMessages((prev) => [
           ...prev,
@@ -167,7 +168,7 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-lg shadow-md sm:w-[350px] w-full flex flex-col sm:h-[80vh] h-[55vh] bg-[#ffffff] sm:mb-20 mb-20 sm:mt-4 mt-2 "
+      className="relative rounded-lg shadow-md sm:w-[400px] w-full flex flex-col sm:h-[80vh] h-[70vh] bg-[#ffffff] sm:mb-20  sm:mt-4  "
     >
       {/* Header */}
       <div className=" w-full sm:h-14 h-12 absoulte  rounded-t-lg shadow-sm bg-[#719ced] flex items-center ">

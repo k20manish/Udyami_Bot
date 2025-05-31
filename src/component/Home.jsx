@@ -16,7 +16,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="h-screen  bg-transparent">
+    <div className="h-screen bg-transparent">
       <NavBarNew />
 
       <div
@@ -26,10 +26,8 @@ const HomePage = () => {
             "linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0))",
         }}
       >
-         
-
-        {/* Left Decorative Images */}
-        <div className="absolute left-0 top-1 sm:top-48 flex flex-col items-center scale-75 md:scale-90 sm:ml-2 ml-0  sm:mt-0 mt-8">
+        {/* Left Decorative Images (Hidden on Mobile) */}
+        <div className="absolute left-0 top-1 sm:top-48 hidden sm:flex flex-col items-center scale-75 md:scale-90 sm:ml-2 ml-0 sm:mt-0 mt-8">
           <motion.img
             src="/src/assets/cm2.png"
             alt="Left Top"
@@ -62,8 +60,8 @@ const HomePage = () => {
           </p>
         </div>
 
-        {/* Right Decorative Images */}
-        <div className="absolute right-4 top-1 sm:top-48 flex flex-col items-center scale-75 md:scale-90 sm:mr-2 mr-0 sm:mt-0 mt-8">
+        {/* Right Decorative Images (Hidden on Mobile) */}
+        <div className="absolute right-4 top-1 sm:top-48 hidden sm:flex flex-col items-center scale-75 md:scale-90 sm:mr-2 mr-0 sm:mt-0 mt-8">
           <motion.img
             src="/src/assets/5.png"
             alt="Right Top"
@@ -99,7 +97,6 @@ const HomePage = () => {
 
         {/* Input Field */}
         <motion.div
-          // variants={fadeIn}
           initial="hidden"
           animate="visible"
           className={`w-[90%] sm:w-full max-w-md sm:max-w-2xl transition-all duration-500 ease-in-out ${
