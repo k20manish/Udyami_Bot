@@ -168,7 +168,7 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-lg shadow-md sm:w-[400px] w-full flex flex-col sm:h-[80vh] h-[70vh] bg-[#ffffff] sm:mb-20  sm:mt-4  "
+      className="relative rounded-lg shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]   flex flex-col sm:h-[80vh] h-[70vh] bg-[#ffffff] sm:mb-20  sm:mt-4  "
     >
       {/* Header */}
       <div className=" w-full sm:h-14 h-12 absoulte  rounded-t-lg shadow-sm bg-[#719ced] flex items-center ">
@@ -179,7 +179,7 @@ function Chatbot({ initialQuery, onBack }) {
             className="w-5 h-5 cursor-pointer ml-2"
           />
         </button>
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 sm:text-lg text-md font-semibold text-white font-sans">
+        <h1 className="absolute left-1/2 transform -translate-x-1/2 sm:text-lg text-sm font-semibold text-white font-sans">
           Hello Udyami
         </h1>
 
@@ -189,7 +189,7 @@ function Chatbot({ initialQuery, onBack }) {
         {/* refresh button */}
         <button onClick={handleRefresh}>
           <img
-            className="sm:h-8 h-6 sm:w-8 w-6 absolute right-12 top-1.5 cursor-pointer"
+            className="sm:h-8 h-5 sm:w-8 w-5 absolute sm:right-16 right-10 top-2 sm:top-1.5 cursor-pointer"
             src="\src\assets\refresh.png"
             alt="refresh"
           />
@@ -260,7 +260,7 @@ function Chatbot({ initialQuery, onBack }) {
       <div className="flex items-center sm:mt-0 mt-0 sm:mb-2 mb-4 mx-2 space-x-2">
         <input
           type="text"
-          className="w-full h-8 px-4 text-sm rounded-full border border-[#719ced] focus:outline-none focus:ring-1 focus:ring-[#7a9dee] transition duration-300 ease-in-out"
+          className="w-full sm:h-8 h-7 px-4 text-sm rounded-full border border-[#719ced] focus:outline-none focus:ring-1 focus:ring-[#7a9dee] transition duration-300 ease-in-out"
           style={{ backgroundColor: "#f5f5f5", color: "black" }}
           value={userQuery}
           onChange={(e) => {
@@ -277,7 +277,7 @@ function Chatbot({ initialQuery, onBack }) {
         />
         <button
           onClick={handleSendMessage}
-          className="h-8 cursor-pointer px-6 text-sm text-white bg-[#719ced] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
+          className="sm:h-8 h-7 cursor-pointer px-6 text-sm text-white bg-[#719ced] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
         >
           <img
             className="h-6 w-8"
