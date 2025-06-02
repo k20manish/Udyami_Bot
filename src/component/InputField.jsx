@@ -9,6 +9,7 @@ import {
   Heart,
   Globe,
   Building2,
+  HelpCircle,
 } from "lucide-react";
 import closeIcon from "../assets/close.png";
 import searchIcon from "../assets/search-interface-symbol.png";
@@ -16,29 +17,29 @@ import Footer from "./Footer";
 
 const schemeIcons = {
   "What is Udyami Yojna?": <Lightbulb className="mr-2 text-yellow-500" />,
-  "Who is eligible for Udyami Yojna?": (
+  " What is the Udyami Portal ?": (
     <Briefcase className="mr-2 text-green-500" />
   ),
-  "उद्यामी योजना के लिए आवेदन कैसे करें?": (
+  "What is MMUY and what are its eligibility criteria ?": (
     <Banknote className="mr-2 text-blue-500" />
   ),
-  "उद्यामी योजना से क्या लाभ प्राप्त होते हैं?": (
+  "Does MMUY offer training and mentorship opportunities ?": (
     <GraduationCap className="mr-2 text-purple-500" />
   ),
-  "उद्यामी योजना के बारे में अधिक जानकारी कहाँ प्राप्त करें?": (
+  "How to receive the first installment in MMUY ?": (
     <Globe className="mr-2 text-teal-500" />
   ),
-  "उद्यामी योजना में पीएमईजीपी की भूमिका क्या है?": (
+  "When do I have to repay the loan amount in MMUY ?": (
     <Building2 className="mr-2 text-red-500" />
   ),
-  "How does Udyami Yojna support digital initiatives?": (
+  "What is BLUY and what are its eligibility criteria ?": (
     <Heart className="mr-2 text-pink-500" />
   ),
-  "What training and mentorship opportunities does Udyami Yojna offer?": (
+  "What are the projects supported under BLUY ?": (
     <Briefcase className="mr-2 text-indigo-500" />
   ),
-  "How is Udyami Yojna evaluated and ranked?": (
-    <GraduationCap className="mr-2 text-orange-500" />
+  "I need further help.": (
+    <HelpCircle className="mr-2 text-orange-500" />
   ),
 };
 
