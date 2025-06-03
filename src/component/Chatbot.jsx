@@ -166,14 +166,14 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-xl shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]  flex flex-col sm:h-[80vh] h-[70vh]   sm:mb-20  sm:mt-4  "
+      className="relative rounded-xl shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]  flex flex-col sm:h-[80vh] h-[70vh] sm:mb-20  sm:mt-4  "
       style={{
         background:
           "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)",
       }}
     >
       {/* Header */}
-      <div className="w-full sm:h-24 h-16    flex items-center justify-between px-4 relative ">
+      <div className="w-full sm:h-14 h-16  flex items-center justify-between px-4 relative ">
         {" "}
         {/* Left section: Logo + Name */}
         <div className="flex items-center space-x-2">
@@ -182,7 +182,7 @@ function Chatbot({ initialQuery, onBack }) {
             alt="Chatbot Logo"
             className="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-full"
           />
-          <h1 className="text-white sm:text-lg text-base font-semibold font-sans">
+          <h1 className="text-white sm:text-lg text-base font-semibold font-orbitron tracking-wider">
             HelloUdyami
           </h1>
         </div>
@@ -190,7 +190,10 @@ function Chatbot({ initialQuery, onBack }) {
         <div className="flex items-center space-x-10">
           <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
 
-          <button className="bg-[#6298fc] p-1 rounded-full sm:mt-1 mt-1" onClick={onBack}>
+          <button
+            className="bg-[#6298fc] p-1 rounded-full sm:mt-1 mt-1"
+            onClick={onBack}
+          >
             <img
               src="/src/assets/close.png"
               alt="Back"
@@ -203,12 +206,9 @@ function Chatbot({ initialQuery, onBack }) {
       {/* <UserProfileHeader /> */}
 
       {/* Scrollable chat area */}
-      <div className="flex flex-col h-[85%] bg-white rounded-lg mx-2 sm:mt-3 mt-1 mb-1">
+      <div className="flex flex-col h-[85%] bg-white rounded-lg mx-2 sm:mt-3 mt-1 sm:mb-4 mb-1">
         {/* Scrollable Chat Area */}
-        <div
-          ref={chatContainerRef}
-          className="flex-grow overflow-y-auto pr-1 "
-        >
+        <div ref={chatContainerRef} className="flex-grow overflow-y-auto pr-1 ">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -222,23 +222,21 @@ function Chatbot({ initialQuery, onBack }) {
                 } mx-1 max-w-[75%]`}
               >
                 <div
-                  className="px-3 py-2 ml-4 mr-2 text-sm flex flex-col"
+                  className="px-3 py-2 ml-4 mr-2 text-sm flex flex-col font-orbitron tracking-wider"
                   style={{
                     background:
                       msg.type === "user"
                         ? "linear-gradient(45deg,rgba(136, 82, 242, 1) 38%, rgba(66, 126, 245, 1) 80%)"
                         : "#f2f2f5",
                     wordBreak: "break-word",
-                    color: msg.type === "user" ? "white" : "#5c5c5e",
+                    color: msg.type === "user" ? "white" : "#2b2b2e",
                     width: "auto",
                     alignSelf: msg.type === "user" ? "flex-end" : "flex-start",
                     borderRadius:
                       msg.type === "user"
                         ? "10px 10px 0 10px"
                         : "10px 10px 10px 10px",
-                    
                   }}
-                   
                 >
                   {msg.type === "bot" ? (
                     <ReactMarkdown
@@ -263,10 +261,11 @@ function Chatbot({ initialQuery, onBack }) {
                   ) : (
                     msg.text
                   )}
-                  <span className="text-[10px] text-gray-200 mt-1 self-start"
-                     style={{
+                  <span
+                    className="text-[10px] text-gray-200 mt-1 self-start"
+                    style={{
                       color: msg.type === "user" ? "white" : "#5c5c5e",
-                     }}
+                    }}
                   >
                     {msg.timestamp}
                   </span>
@@ -276,8 +275,12 @@ function Chatbot({ initialQuery, onBack }) {
           ))}
 
           {loading && (
-            <div className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white"
-              style={{ background: "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)"}}
+            <div
+              className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white"
+              style={{
+                background:
+                  "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)",
+              }}
             >
               thinking...
             </div>
@@ -288,8 +291,7 @@ function Chatbot({ initialQuery, onBack }) {
         <div className="w-full px-2 py-2 flex items-center space-x-2 border-t border-gray-200">
           <input
             type="text"
-           className="w-full sm:h-12 h-8 px-4 text-sm  outline-none text-black "
-
+            className="w-full sm:h-12 h-8 px-4 text-sm  outline-none text-black "
             style={{ color: "black" }}
             value={userQuery}
             onChange={(e) => {

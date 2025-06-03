@@ -8,4 +8,7 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  fontFamily: {
+    orbitron: ['Orbitron', 'sans-serif'],
+  },
 })
