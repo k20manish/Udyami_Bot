@@ -169,8 +169,12 @@ function Chatbot({ initialQuery, onBack }) {
       className="relative rounded-lg shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]   flex flex-col sm:h-[80vh] h-[70vh] bg-[#ffffff] sm:mb-20  sm:mt-4  "
     >
       {/* Header */}
-      <div className="w-full sm:h-32 h-28 rounded-lg shadow-sm bg-gradient-to-r from-[#8552f2] to-[#4281f5] flex items-center justify-between px-4 relative mb-4">
-        {/* Left section: Logo + Name */}
+<div
+  className="w-full sm:h-32 h-28 rounded-lg shadow-sm flex items-center justify-between px-4 relative mb-4"
+  style={{
+    background: "linear-gradient(143deg,rgba(136, 82, 242, 1) 37%, rgba(64, 127, 245, 1) 80%)",
+  }}
+>        {/* Left section: Logo + Name */}
         <div className="flex items-center space-x-2">
           <img
             src="/src/assets/chatbot_profile.jpg" // replace with your logo path
@@ -217,7 +221,7 @@ function Chatbot({ initialQuery, onBack }) {
                 mx-4 max-w-[75%]`}
             >
               {/* Avatar on top */}
-              <img
+              {/* <img
                 src={
                   msg.type === "user"
                     ? "/src/assets/human_image.png"
@@ -225,15 +229,15 @@ function Chatbot({ initialQuery, onBack }) {
                 }
                 alt={msg.type === "user" ? "User" : "Chatbot"}
                 className="w-8 h-8 rounded-full mb-1"
-              />
+              /> */}
 
               {/* Message box */}
               <div
                 className="px-3 py-2 rounded-t-xl rounded-bl-xl text-sm flex flex-col"
                 style={{
-                  background: msg.type === "user" ? 'linear-gradient(to right, #506cfa, #8f6bfa)' : "#f2f4f5",
+                  background: msg.type === "user" ? 'linear-gradient(to right, #506cfa, #8f6bfa)' : "#f2f2f5",
                   wordBreak: "break-word",
-                  color: msg.type === "user" ? "white" : "#878799",
+                  color: msg.type === "user" ? "white" : "#5c5c5e",
                   width: "auto",
                   alignSelf: msg.type === "user" ? "flex-end" : "flex-start",
                 }}
@@ -297,7 +301,7 @@ function Chatbot({ initialQuery, onBack }) {
         />
         <button
           onClick={handleSendMessage}
-          className="sm:h-8 h-7 cursor-pointer px-6 text-sm text-white bg-[#6497f5] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
+          className="sm:h-8 h-7 cursor-pointer px-6 text-sm text-white bg-gradient-to-r from-[#8552f2] to-[#4281f5] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
         >
           <img
             className="h-6 w-8"
