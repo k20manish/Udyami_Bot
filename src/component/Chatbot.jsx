@@ -166,15 +166,16 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-lg shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]   flex flex-col sm:h-[80vh] h-[70vh] bg-[#ffffff] sm:mb-20  sm:mt-4  "
+      className="relative rounded-xl shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]  flex flex-col sm:h-[80vh] h-[70vh]   sm:mb-20  sm:mt-4  "
+      style={{
+        background:
+          "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)",
+      }}
     >
       {/* Header */}
-<div
-  className="w-full sm:h-32 h-28 rounded-lg shadow-sm flex items-center justify-between px-4 relative mb-4"
-  style={{
-    background: "linear-gradient(143deg,rgba(136, 82, 242, 1) 37%, rgba(64, 127, 245, 1) 80%)",
-  }}
->        {/* Left section: Logo + Name */}
+      <div className="w-full sm:h-24 h-16    flex items-center justify-between px-4 relative ">
+        {" "}
+        {/* Left section: Logo + Name */}
         <div className="flex items-center space-x-2">
           <img
             src="/src/assets/chatbot_profile.jpg" // replace with your logo path
@@ -185,16 +186,15 @@ function Chatbot({ initialQuery, onBack }) {
             HelloUdyami
           </h1>
         </div>
-
         {/* Right section: Bulb + Back Button */}
         <div className="flex items-center space-x-10">
           <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
 
-          <button onClick={onBack}>
+          <button className="bg-[#6298fc] p-1 rounded-full sm:mt-1 mt-1" onClick={onBack}>
             <img
               src="/src/assets/close.png"
               alt="Back"
-              className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer"
+              className="w-4 h-4  sm:w-6 sm:h-6 cursor-pointer"
             />
           </button>
         </div>
@@ -203,112 +203,118 @@ function Chatbot({ initialQuery, onBack }) {
       {/* <UserProfileHeader /> */}
 
       {/* Scrollable chat area */}
-      <div
-        ref={chatContainerRef}
-        className="flex-grow basis-[90%] overflow-y-auto mb-2 pr-2 sm:mt-3 mt-0 rounded-lg"
-      >
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`mb-2 flex ${
-              msg.type === "user" ? "justify-end" : "justify-start"
-            }`}
-          >
+      <div className="flex flex-col h-[85%] bg-white rounded-lg mx-2 sm:mt-3 mt-1 mb-1">
+        {/* Scrollable Chat Area */}
+        <div
+          ref={chatContainerRef}
+          className="flex-grow overflow-y-auto pr-1 "
+        >
+          {messages.map((msg, i) => (
             <div
-              className={`flex flex-col ${
-                msg.type === "user" ? "items-end" : "items-start"
-              } 
-                mx-4 max-w-[75%]`}
+              key={i}
+              className={`mb-2 mt-2 flex ${
+                msg.type === "user" ? "justify-end" : "justify-start"
+              }`}
             >
-              {/* Avatar on top */}
-              {/* <img
-                src={
-                  msg.type === "user"
-                    ? "/src/assets/human_image.png"
-                    : "/src/assets/chatbot_profile.jpg"
-                }
-                alt={msg.type === "user" ? "User" : "Chatbot"}
-                className="w-8 h-8 rounded-full mb-1"
-              /> */}
-
-              {/* Message box */}
               <div
-                className="px-3 py-2 rounded-t-xl rounded-bl-xl text-sm flex flex-col"
-                style={{
-                  background: msg.type === "user" ? 'linear-gradient(to right, #506cfa, #8f6bfa)' : "#f2f2f5",
-                  wordBreak: "break-word",
-                  color: msg.type === "user" ? "white" : "#5c5c5e",
-                  width: "auto",
-                  alignSelf: msg.type === "user" ? "flex-end" : "flex-start",
-                }}
+                className={`flex flex-col ${
+                  msg.type === "user" ? "items-end" : "items-start"
+                } mx-1 max-w-[75%]`}
               >
-                {msg.type === "bot" ? (
-                  <ReactMarkdown
-                    components={{
-                      ol: ({ children }) => (
-                        <ol className="list-decimal pl-5 my-2">{children}</ol>
-                      ),
-                      ul: ({ children }) => (
-                        <ul className="list-disc pl-5 my-2">{children}</ul>
-                      ),
-                      li: ({ children }) => (
-                        <li className="mb-1">{children}</li>
-                      ),
-                      strong: ({ children }) => (
-                        <strong className="font-semibold">{children}</strong>
-                      ),
-                      p: ({ children }) => <p className="mb-2">{children}</p>,
-                    }}
+                <div
+                  className="px-3 py-2 ml-4 mr-2 text-sm flex flex-col"
+                  style={{
+                    background:
+                      msg.type === "user"
+                        ? "linear-gradient(45deg,rgba(136, 82, 242, 1) 38%, rgba(66, 126, 245, 1) 80%)"
+                        : "#f2f2f5",
+                    wordBreak: "break-word",
+                    color: msg.type === "user" ? "white" : "#5c5c5e",
+                    width: "auto",
+                    alignSelf: msg.type === "user" ? "flex-end" : "flex-start",
+                    borderRadius:
+                      msg.type === "user"
+                        ? "10px 10px 0 10px"
+                        : "10px 10px 10px 10px",
+                    
+                  }}
+                   
+                >
+                  {msg.type === "bot" ? (
+                    <ReactMarkdown
+                      components={{
+                        ol: ({ children }) => (
+                          <ol className="list-decimal pl-5 my-2">{children}</ol>
+                        ),
+                        ul: ({ children }) => (
+                          <ul className="list-disc pl-5 my-2">{children}</ul>
+                        ),
+                        li: ({ children }) => (
+                          <li className="mb-1">{children}</li>
+                        ),
+                        strong: ({ children }) => (
+                          <strong className="font-semibold">{children}</strong>
+                        ),
+                        p: ({ children }) => <p className="mb-2">{children}</p>,
+                      }}
+                    >
+                      {msg.text}
+                    </ReactMarkdown>
+                  ) : (
+                    msg.text
+                  )}
+                  <span className="text-[10px] text-gray-200 mt-1 self-start"
+                     style={{
+                      color: msg.type === "user" ? "white" : "#5c5c5e",
+                     }}
                   >
-                    {msg.text}
-                  </ReactMarkdown>
-                ) : (
-                  msg.text
-                )}
-                <span className="text-xs text-gray-800 mt-1 self-start">
-                  {msg.timestamp}
-                </span>
+                    {msg.timestamp}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
 
-        {loading && (
-          <div className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white">
-            thinking...
-          </div>
-        )}
-      </div>
+          {loading && (
+            <div className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white"
+              style={{ background: "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)"}}
+            >
+              thinking...
+            </div>
+          )}
+        </div>
 
-      {/* Input area */}
-      <div className="flex items-center sm:mt-0 mt-0 sm:mb-2 mb-4 mx-2 space-x-2">
-        <input
-          type="text"
-          className="w-full sm:h-8 h-7 px-4 text-sm rounded-full border border-[#719ced] focus:outline-none focus:ring-1 focus:ring-[#7a9dee] transition duration-300 ease-in-out"
-          style={{ backgroundColor: "#f5f5f5", color: "black" }}
-          value={userQuery}
-          onChange={(e) => {
-            setUserQuery(e.target.value);
-            setIsTyping(true);
+        {/* Input Area */}
+        <div className="w-full px-2 py-2 flex items-center space-x-2 border-t border-gray-200">
+          <input
+            type="text"
+           className="w-full sm:h-12 h-8 px-4 text-sm  outline-none text-black "
 
-            clearTimeout(typingTimeoutRef.current);
-            typingTimeoutRef.current = setTimeout(() => {
-              setIsTyping(false);
-            }, 1000);
-          }}
-          placeholder="Ask me something..."
-          onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-        />
-        <button
-          onClick={handleSendMessage}
-          className="sm:h-8 h-7 cursor-pointer px-6 text-sm text-white bg-gradient-to-r from-[#8552f2] to-[#4281f5] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
-        >
-          <img
-            className="h-6 w-8"
-            src="\src\assets\back_image.png"
-            alt="send"
+            style={{ color: "black" }}
+            value={userQuery}
+            onChange={(e) => {
+              setUserQuery(e.target.value);
+              setIsTyping(true);
+              clearTimeout(typingTimeoutRef.current);
+              typingTimeoutRef.current = setTimeout(
+                () => setIsTyping(false),
+                1000
+              );
+            }}
+            placeholder="Ask me something..."
+            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
           />
-        </button>
+          <button
+            onClick={handleSendMessage}
+            className="sm:h-9 h-8 cursor-pointer px-4 mr-6 text-sm text-white bg-gradient-to-r from-[#8552f2] to-[#4281f5] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
+          >
+            <img
+              className="h-6 w-8"
+              src="\src\assets\back_image.png"
+              alt="send"
+            />
+          </button>
+        </div>
       </div>
     </motion.div>
   );
