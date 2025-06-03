@@ -16,7 +16,7 @@ const AboutUs = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate("/")}
-        className="flex items-center text-[#3f1063] hover:text-[#ed71c4] p-2 mb-4 sm:absolute sm:top-6 sm:left-6"
+        className="flex items-center text-[#3f1063] hover:text-[#7171ed] p-2 mb-4 sm:absolute sm:top-6 sm:left-6 cursor-pointer"
       >
         <ArrowLeft className="mr-2 w-5 h-5" />
         <span className="text-sm sm:text-base">Back</span>
