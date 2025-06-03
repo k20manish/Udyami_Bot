@@ -24,21 +24,20 @@ function Chatbot({ initialQuery, onBack }) {
   const typingTimeoutRef = useRef(null);
 
   const handleRefresh = () => {
-  if (abortControllerRef.current) {
-    abortControllerRef.current.abort();
-  }
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
 
-  setMessages([]);
-  setUserQuery("");
-  setIsThinking(false);
-  setLoading(false);
-  setUserId("");
-  localStorage.removeItem("user_id");
+    setMessages([]);
+    setUserQuery("");
+    setIsThinking(false);
+    setLoading(false);
+    setUserId("");
+    localStorage.removeItem("user_id");
 
-  // prevent initialQuery from re-triggering
-  hasHandledInitialQuery.current = true;
-};
-
+    // prevent initialQuery from re-triggering
+    hasHandledInitialQuery.current = true;
+  };
 
   const navigate = useNavigate();
 
@@ -52,7 +51,7 @@ function Chatbot({ initialQuery, onBack }) {
       return lines
         .map((line) => `- ${line.replace(/^[-*•]\s+/, "")}`)
         .join("\n");
-    
+
     return text;
   };
 
@@ -101,9 +100,8 @@ function Chatbot({ initialQuery, onBack }) {
           setUserId(data.user_id);
           localStorage.setItem("user_id", data.user_id);
         }
-        
-        if (data.query_logged)
-        {
+
+        if (data.query_logged) {
           alert(data.logged_message);
         }
 
@@ -171,32 +169,34 @@ function Chatbot({ initialQuery, onBack }) {
       className="relative rounded-lg shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]   flex flex-col sm:h-[80vh] h-[70vh] bg-[#ffffff] sm:mb-20  sm:mt-4  "
     >
       {/* Header */}
-      <div className=" w-full sm:h-14 h-12 absoulte  rounded-t-lg shadow-sm bg-indigo-500/90 flex items-center ">
-        <button onClick={onBack}>
+      <div className="w-full sm:h-32 h-28 rounded-lg shadow-sm bg-gradient-to-r from-[#8552f2] to-[#4281f5] flex items-center justify-between px-4 relative mb-4">
+        {/* Left section: Logo + Name */}
+        <div className="flex items-center space-x-2">
           <img
-            src="\src\assets\back.png"
-            alt="Back"
-            className="w-5 h-5 cursor-pointer ml-2"
+            src="/src/assets/chatbot_profile.jpg" // replace with your logo path
+            alt="Chatbot Logo"
+            className="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-full"
           />
-        </button>
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 sm:text-lg text-sm font-semibold text-white font-sans">
-          Hello Udyami
-        </h1>
+          <h1 className="text-white sm:text-lg text-base font-semibold font-sans">
+            HelloUdyami
+          </h1>
+        </div>
 
-        {/* Bulb icon shows based on typing state */}
-        <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
+        {/* Right section: Bulb + Back Button */}
+        <div className="flex items-center space-x-10">
+          <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
 
-        {/* refresh button */}
-        <button onClick={handleRefresh}>
-          <img
-            className="sm:h-8 h-5 sm:w-8 w-5 absolute sm:right-16 right-10 top-2 sm:top-1.5 cursor-pointer"
-            src="\src\assets\refresh.png"
-            alt="refresh"
-          />
-        </button>
+          <button onClick={onBack}>
+            <img
+              src="/src/assets/close.png"
+              alt="Back"
+              className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer"
+            />
+          </button>
+        </div>
       </div>
 
-      <UserProfileHeader />
+      {/* <UserProfileHeader /> */}
 
       {/* Scrollable chat area */}
       <div
@@ -206,45 +206,65 @@ function Chatbot({ initialQuery, onBack }) {
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`mb-1 flex ${
-              msg.type === "user"
-                ? "justify-end sm:ml-10 ml-2 mb-2"
-                : "justify-start sm:mr-10 mr-2 ml-2"
+            className={`mb-2 flex ${
+              msg.type === "user" ? "justify-end" : "justify-start"
             }`}
           >
             <div
-              className='px-3 py-2 rounded-lg text-sm flex flex-col'
-              style={{
-                backgroundColor: msg.type === "user" ? "#6497f5" : "#e6e6e6",
-                maxWidth: "90%",
-                wordBreak: "break-word",
-                color: "black",
-              }}
+              className={`flex flex-col ${
+                msg.type === "user" ? "items-end" : "items-start"
+              } 
+                mx-4 max-w-[75%]`}
             >
-              {msg.type === "bot" ? (
-                <ReactMarkdown
-                  components={{
-                    ol: ({ children }) => (
-                      <ol className="list-decimal pl-5 my-2">{children}</ol>
-                    ),
-                    ul: ({ children }) => (
-                      <ul className="list-disc pl-5 my-2">{children}</ul>
-                    ),
-                    li: ({ children }) => <li className="mb-1">{children}</li>,
-                    strong: ({ children }) => (
-                      <strong className="font-semibold">{children}</strong>
-                    ),
-                    p: ({ children }) => <p className="mb-2">{children}</p>,
-                  }}
-                >
-                  {msg.text}
-                </ReactMarkdown>
-              ) : (
-                msg.text
-              )}
-              <span className="text-xs text-gray-800 mt-1 self-start">
-                {msg.timestamp}
-              </span>
+              {/* Avatar on top */}
+              <img
+                src={
+                  msg.type === "user"
+                    ? "/src/assets/human_image.png"
+                    : "/src/assets/chatbot_profile.jpg"
+                }
+                alt={msg.type === "user" ? "User" : "Chatbot"}
+                className="w-8 h-8 rounded-full mb-1"
+              />
+
+              {/* Message box */}
+              <div
+                className="px-3 py-2 rounded-t-xl rounded-bl-xl text-sm flex flex-col"
+                style={{
+                  background: msg.type === "user" ? 'linear-gradient(to right, #506cfa, #8f6bfa)' : "#f2f4f5",
+                  wordBreak: "break-word",
+                  color: msg.type === "user" ? "white" : "#878799",
+                  width: "auto",
+                  alignSelf: msg.type === "user" ? "flex-end" : "flex-start",
+                }}
+              >
+                {msg.type === "bot" ? (
+                  <ReactMarkdown
+                    components={{
+                      ol: ({ children }) => (
+                        <ol className="list-decimal pl-5 my-2">{children}</ol>
+                      ),
+                      ul: ({ children }) => (
+                        <ul className="list-disc pl-5 my-2">{children}</ul>
+                      ),
+                      li: ({ children }) => (
+                        <li className="mb-1">{children}</li>
+                      ),
+                      strong: ({ children }) => (
+                        <strong className="font-semibold">{children}</strong>
+                      ),
+                      p: ({ children }) => <p className="mb-2">{children}</p>,
+                    }}
+                  >
+                    {msg.text}
+                  </ReactMarkdown>
+                ) : (
+                  msg.text
+                )}
+                <span className="text-xs text-gray-800 mt-1 self-start">
+                  {msg.timestamp}
+                </span>
+              </div>
             </div>
           </div>
         ))}

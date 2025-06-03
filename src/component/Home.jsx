@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import NavBarNew from "./NavBarNew";
 import InputField from "./InputField";
+ 
 
 const HomePage = () => {
   const [isInputFocused, setIsInputFocused] = useState(false);
