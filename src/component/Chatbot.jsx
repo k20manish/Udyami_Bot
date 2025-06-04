@@ -182,12 +182,12 @@ function Chatbot({ initialQuery, onBack }) {
             alt="Chatbot Logo"
             className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full"
           />
-          <h1 className="text-white sm:text-lg text-base font-semibold font-orbitron tracking-wider">
+          <h1 className="text-white sm:text-lg text-base font-semibold font-glida tracking-wider">
             HelloUdyami
           </h1>
         </div>
         {/* Right section: Bulb + Back Button */}
-        <div className="flex items-center space-x-10">
+        <div className="flex items-center sm:space-x-14 space-x-9">
           <BlinkingBulb isUserTyping={isTyping} isBotThinking={isThinking} />
 
           <button
@@ -248,6 +248,10 @@ function Chatbot({ initialQuery, onBack }) {
                       msg.type === "user"
                         ? "10px 10px 0 10px"
                         : "10px 10px 10px 10px",
+                    boxShadow:
+                      msg.type === "user"
+                        ? "0 0 0 1px rgba(90, 50, 150, 0.7)"
+                        : "0 0 0 1px rgba(150, 150, 150, 0.6)",
                   }}
                 >
                   {msg.type === "bot" ? (

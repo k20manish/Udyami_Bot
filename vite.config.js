@@ -10,5 +10,6 @@ export default defineConfig({
   ],
   fontFamily: {
     orbitron: ['Orbitron', 'sans-serif'],
+    gilda: ['"Gilda Display"', 'serif'],
   },
 })
