@@ -216,13 +216,25 @@ function Chatbot({ initialQuery, onBack }) {
                 msg.type === "user" ? "justify-end" : "justify-start"
               }`}
             >
+              {msg.type === "bot" && (
+                <img
+                  src="\src\assets\unnamed.jpg"
+                  alt="Bot"
+                  className="sm:w-8 sm:h-8 w-5 h-5  self-start mt-0 ml-1"
+                  style={{
+                    borderRadius:
+                      msg.type === "user" ? "0" : "30px 30px 0 30px",
+                  }}
+                />
+              )}
+
               <div
                 className={`flex flex-col ${
                   msg.type === "user" ? "items-end" : "items-start"
                 } mx-1 max-w-[75%]`}
               >
                 <div
-                  className="px-3 py-2 ml-4 mr-2 text-sm flex flex-col font-orbitron tracking-wider"
+                  className="px-3 py-1 ml-1 mr-2 text-sm flex flex-col font-orbitron tracking-wider"
                   style={{
                     background:
                       msg.type === "user"
@@ -275,14 +287,25 @@ function Chatbot({ initialQuery, onBack }) {
           ))}
 
           {loading && (
-            <div
-              className="text-left italic w-fit bg-[#719ced] rounded-md px-3 py-1 text-sm ml-2 text-white"
-              style={{
-                background:
-                  "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)",
-              }}
-            >
-              thinking...
+            <div className="mb-2 mt-2 flex justify-start">
+              {/* Bot avatar */}
+              {/* <img
+                src="\src\assets\unnamed.jpg" // or use `botAvatar` if imported at top
+                alt="Bot"
+                className="sm:w-8 sm:h-8 w-5 h-5  self-start mt-1 ml-1"
+              /> */}
+
+              {/* "Thinking..." bubble */}
+              <div
+                className="italic text-sm text-white px-3 py-1 ml-2 mt-1 rounded-md"
+                style={{
+                  background:
+                    "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)",
+                  borderRadius: "30px 30px 0 30px",
+                }}
+              >
+                thinking...
+              </div>
             </div>
           )}
         </div>
