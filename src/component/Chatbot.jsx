@@ -166,21 +166,21 @@ function Chatbot({ initialQuery, onBack }) {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative rounded-xl shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]  flex flex-col sm:h-[80vh] h-[70vh] sm:mb-20  sm:mt-4  "
+      className="relative rounded-xl shadow-md w-[95%] sm:w-[90%] md:w-[600px] lg:w-[640px]  flex flex-col sm:h-[80vh] h-[75vh] sm:mb-20  sm:mt-4  "
       style={{
         background:
           "linear-gradient(47deg,rgba(136, 82, 242, 1) 48%, rgba(64, 127, 245, 1) 80%)",
       }}
     >
       {/* Header */}
-      <div className="w-full sm:h-14 h-16  flex items-center justify-between px-4 relative ">
+      <div className="w-full sm:h-14 h-15  flex items-center justify-between px-4 relative ">
         {" "}
         {/* Left section: Logo + Name */}
         <div className="flex items-center space-x-2">
           <img
-            src="/src/assets/chatbot_profile.jpg" // replace with your logo path
+            src="\src\assets\udyaiLogo.png" // replace with your logo path
             alt="Chatbot Logo"
-            className="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-full"
+            className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full"
           />
           <h1 className="text-white sm:text-lg text-base font-semibold font-orbitron tracking-wider">
             HelloUdyami
@@ -206,7 +206,7 @@ function Chatbot({ initialQuery, onBack }) {
       {/* <UserProfileHeader /> */}
 
       {/* Scrollable chat area */}
-      <div className="flex flex-col h-[85%] bg-white rounded-lg mx-2 sm:mt-3 mt-1 sm:mb-4 mb-1">
+      <div className="flex flex-col h-[85%] bg-white rounded-xl mx-2 sm:mt-3 mt-2 sm:mb-4 mb-1">
         {/* Scrollable Chat Area */}
         <div ref={chatContainerRef} className="flex-grow overflow-y-auto pr-1 ">
           {messages.map((msg, i) => (
