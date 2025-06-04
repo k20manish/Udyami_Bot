@@ -101,9 +101,22 @@ function Chatbot({ initialQuery, onBack }) {
           localStorage.setItem("user_id", data.user_id);
         }
 
-        if (data.query_logged) {
-          alert(data.logged_message);
-        }
+       if (data.query_logged) {
+        // Access fields directly 
+          const name = data.logged_name || "N/A";
+          const applicationId = data.logged_application_id || "N/A";
+          const mobileNumber = data.logged_mobile_number || "N/A";
+          const query = data.logged_query || "N/A";
+
+          console.log("Name:", name);
+          console.log("Application ID:", applicationId);
+          console.log("Mobile Number:", mobileNumber);
+          console.log("Query:", query);
+
+          alert(
+           ` Query Logged:\n\nName: ${name}\nApplication ID: ${applicationId}\nMobile: ${mobileNumber}\nQuery: ${query}`
+          );
+        }
 
         setMessages((prev) => [
           ...prev,
