@@ -13,7 +13,7 @@ const NavBarNew = () => {
           <RouterLink to="/" className="-m-1.5 p-1.5">
             <img
               className="h-12 w-auto rounded-full"
-              src="/src/assets/udymai.png"
+              src="/udymai.png"
               alt="Company Logo"
             />
           </RouterLink>

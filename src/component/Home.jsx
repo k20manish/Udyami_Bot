@@ -30,7 +30,7 @@ const HomePage = () => {
         {/* Left Decorative Images (Hidden on Mobile) */}
         <div className="absolute left-0 top-1 sm:top-48 hidden sm:flex flex-col items-center scale-75 md:scale-90 sm:ml-2 ml-0 sm:mt-0 mt-8">
           <motion.img
-            src="/src/assets/cm2.png"
+            src="/cm2.png"
             alt="Left Top"
             className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}
@@ -45,7 +45,7 @@ const HomePage = () => {
           </p>
 
           <motion.img
-            src="/src/assets/minister.png"
+            src="/minister.png"
             alt="Left Bottom"
             className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}
@@ -64,7 +64,7 @@ const HomePage = () => {
         {/* Right Decorative Images (Hidden on Mobile) */}
         <div className="absolute right-4 top-1 sm:top-48 hidden sm:flex flex-col items-center scale-75 md:scale-90 sm:mr-2 mr-0 sm:mt-0 mt-8">
           <motion.img
-            src="/src/assets/5.png"
+            src="/5.png"
             alt="Right Top"
             className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}
@@ -80,7 +80,7 @@ const HomePage = () => {
           </p>
 
           <motion.img
-            src="/src/assets/4.png"
+            src="/4.png"
             alt="Right Bottom"
             className="object-cover w-20 sm:w-36 h-20 sm:h-36 m-1"
             variants={fadeIn}

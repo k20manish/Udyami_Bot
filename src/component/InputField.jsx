@@ -11,8 +11,8 @@ import {
   Building2,
   HelpCircle,
 } from "lucide-react";
-import closeIcon from "../assets/close.png";
-import searchIcon from "../assets/search-interface-symbol.png";
+import closeIcon from "/close.png";
+import searchIcon from "/search-interface-symbol.png";
 import Footer from "./Footer";
 
 const schemeIcons = {

@@ -178,7 +178,7 @@ function Chatbot({ initialQuery, onBack }) {
         {/* Left section: Logo + Name */}
         <div className="flex items-center space-x-2">
           <img
-            src="\src\assets\udyaiLogo.png" // replace with your logo path
+            src="/udyaiLogo.png" // replace with your logo path
             alt="Chatbot Logo"
             className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full"
           />
@@ -195,7 +195,7 @@ function Chatbot({ initialQuery, onBack }) {
             onClick={onBack}
           >
             <img
-              src="/src/assets/close.png"
+              src="/close.png"
               alt="Back"
               className="w-4 h-4  sm:w-6 sm:h-6 cursor-pointer"
             />
@@ -218,7 +218,7 @@ function Chatbot({ initialQuery, onBack }) {
             >
               {msg.type === "bot" && (
                 <img
-                  src="\src\assets\unnamed.jpg"
+                  src="/unnamed.jpg"
                   alt="Bot"
                   className="sm:w-8 sm:h-8 w-5 h-5  self-start mt-0 ml-1"
                   style={{
@@ -292,12 +292,7 @@ function Chatbot({ initialQuery, onBack }) {
 
           {loading && (
             <div className="mb-2 mt-2 flex justify-start">
-              {/* Bot avatar */}
-              {/* <img
-                src="\src\assets\unnamed.jpg" // or use `botAvatar` if imported at top
-                alt="Bot"
-                className="sm:w-8 sm:h-8 w-5 h-5  self-start mt-1 ml-1"
-              /> */}
+              
 
               {/* "Thinking..." bubble */}
               <div
@@ -339,7 +334,7 @@ function Chatbot({ initialQuery, onBack }) {
           >
             <img
               className="h-6 w-8"
-              src="\src\assets\back_image.png"
+              src="/back_image.png"
               alt="send"
             />
           </button>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import LightOn from "../assets/LightOn.png";
-import LightbulbOff from "../assets/LightOff.png";
+import LightOn from "/LightOn.png";
+import LightbulbOff from "/LightOff.png";
 
 const BlinkingBulb = ({ isUserTyping, isBotThinking }) => {
   const [isBlinking, setIsBlinking] = useState(false);

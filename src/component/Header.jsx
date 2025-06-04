@@ -7,7 +7,7 @@ const UdyamiHeader = () => {
       {/* Logo & Title */}
       <div className="flex items-center space-x-3">
         <img
-          src="\src\assets\udymai.png"
+          src="/udymai.png"
           alt="Udyami Logo"
           className="h-10 w-10 rounded-full border-2 border-[#afa4a8]"
         />
