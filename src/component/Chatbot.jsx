@@ -191,9 +191,9 @@ function Chatbot({ initialQuery, onBack }) {
         {/* Left section: Logo + Name */}
         <div className="flex items-center space-x-2">
           <img
-            src="/udyaiLogo.png" // replace with your logo path
+            src="/udymai.png" // replace with your logo path
             alt="Chatbot Logo"
-            className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full"
+            className="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-full"
           />
           <h1 className="text-white sm:text-lg text-base font-semibold font-glida tracking-wider">
             HelloUdyami
