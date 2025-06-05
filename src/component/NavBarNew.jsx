@@ -20,7 +20,7 @@ const NavBarNew = () => {
         </div>
 
         {/* Title */}
-        <div className="absolute sm:left-1/8 left-1/4 font-bold text-xl font-glida text-white">
+        <div className="absolute sm:left-1/14 left-1/4 font-bold text-xl font-glida text-white">
           HelloUdyami
         </div>
 

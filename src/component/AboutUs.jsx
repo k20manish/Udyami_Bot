@@ -51,10 +51,10 @@ const AboutUs = () => {
           <li><strong>🧠 Learning System:</strong> Continuously updated to improve accuracy and handle new queries.</li>
         </ul>
 
-        <h2 className="text-lg sm:text-xl font-semibold text-[#3f1063]">Who We Are</h2>
+        {/* <h2 className="text-lg sm:text-xl font-semibold text-[#3f1063]">Who We Are</h2>
         <p>
           We are a team of developers, policy experts, and innovation enthusiasts committed to making government schemes more accessible. The chatbot leverages natural language processing (NLP) and AI-driven information retrieval to deliver the most relevant and up-to-date responses.
-        </p>
+        </p> */}
         <p className="text-gray-500">Developed by :- NS APPS INNOVATION LLP</p>
       </div>
     </motion.div>
