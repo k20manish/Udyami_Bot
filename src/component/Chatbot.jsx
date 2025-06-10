@@ -343,7 +343,7 @@ function Chatbot({ initialQuery, onBack }) {
           />
           <button
             onClick={handleSendMessage}
-            className="sm:h-9 h-8 cursor-pointer px-4 mr-6 text-sm text-white bg-gradient-to-r from-[#8552f2] to-[#4281f5] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
+            className="sm:h-9 h-8 cursor-pointer px-4 mr-2 text-sm text-white bg-gradient-to-r from-[#8552f2] to-[#4281f5] rounded-full hover:bg-[#719cedd4] focus:outline-none transition duration-300 ease-in-out"
           >
             <img
               className="h-6 w-8"
