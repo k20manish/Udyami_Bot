@@ -98,7 +98,7 @@ const Registration_List = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">Registration List</h2>
+      <h2 className="text-xl font-bold mb-4">Query List</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white rounded-xl shadow-md border border-gray-300 border-collapse overflow-hidden">
   <thead className="bg-indigo-600 text-white">
@@ -108,10 +108,10 @@ const Registration_List = () => {
       <th className="px-4 py-2 text-left border-r border-gray-300">Registration ID</th>
       <th className="px-4 py-2 text-left border-r border-gray-300">Mobile Number</th>
       <th className="px-4 py-2 text-left border-r border-gray-300">Application Date</th>
-      <th className="px-4 py-2 text-left border-r border-gray-300">Approved Date</th>
+      <th className="px-4 py-2 text-left border-r border-gray-300">Resolve Date</th>
       <th className="px-4 py-2 text-left border-r border-gray-300">Current Status</th>
-      <th className="px-4 py-2 text-center border-r border-gray-300">Marked</th>
-      <th className="px-4 py-2 text-center border-r border-gray-300">Unmarked</th>
+      <th className="px-4 py-2 text-center border-r border-gray-300">Marked As Resolve</th>
+      <th className="px-4 py-2 text-center border-r border-gray-300">Change Status</th>
     </tr>
   </thead>
   <tbody>
@@ -132,8 +132,8 @@ const Registration_List = () => {
           </button>
         </td>
         <td className="px-4 py-2 text-center border-r border-gray-300">
-          <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm">
-            Unmark
+          <button className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 text-sm">
+            Status
           </button>
         </td>
       </tr>
