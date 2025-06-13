@@ -1,4 +1,4 @@
-import {useState,useRef,useEffect} from 'react';
+import { useState, useRef, useEffect } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
@@ -41,8 +41,15 @@ const Registration_Navbar = ({ data, onSearch }) => {
     onSearch(value); // send to parent
   };
 
+  //count logic
+  const totalQuery = data.length;
+  const totalResolved = data.filter(
+    (item) => item.status === "Resolved"
+  ).length;
+  const totalPending = data.filter((item) => item.status === "Pending").length;
+
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-evenly items-center">
       <div className="mt-6 mx-4 flex items-center justify-between bg-white shadow-md px-6 py-2 rounded-full w-full max-w-xl">
         <div className="flex items-center gap-3 flex-grow">
           <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
@@ -56,9 +63,19 @@ const Registration_Navbar = ({ data, onSearch }) => {
         </div>
       </div>
 
+      <div className="bg-blue-300 mt-6 px-4 py-2 rounded-full">
+        Total Query: {totalQuery}
+      </div>
+      <div className="bg-green-300 mt-6 px-4 py-2 rounded-full">
+        Resolved: {totalResolved}
+      </div>
+      <div className="bg-yellow-300 mt-6 px-4 py-2 rounded-full">
+        Pending: {totalPending}
+      </div>
+
       <button
         onClick={handleDownload}
-        className="ml-6 h-10 mt-10 px-4 py-1 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700"
+        className="ml-6 h-10 mt-6 px-4  bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700"
       >
         Download Excel
       </button>

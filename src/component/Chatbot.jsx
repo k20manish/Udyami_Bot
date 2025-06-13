@@ -106,7 +106,7 @@ function Chatbot({ initialQuery, onBack }) {
           const name = data.helpline_log.logged_name || "N/A";
           const applicationId = data.helpline_log.logged_application_id || "N/A";
           const mobileNumber = data.helpline_log.logged_mobile_number || "N/A";
-          const query = data.helpline_log.logged_query || "N/A";
+          const query = data.helpline_log.logged_issue || "N/A";
 
           console.log("Name:", name);
           console.log("Application ID:", applicationId);
