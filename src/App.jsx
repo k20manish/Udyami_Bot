@@ -21,7 +21,7 @@ function App() {
   return (
     <>
     {!shouldHideNav && <NavBarNew />}
-      <div className={!shouldHideNav ? 'pt-16' : ''}>
+      <div className={!shouldHideNav ? 'pt-0' : ''}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Registration_Page" element={<Registration_Page />} />
