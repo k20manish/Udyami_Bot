@@ -19,17 +19,15 @@ const SideBar = ({ setActiveSection }) => {
   };
 
   const handleLogout = () => {
-    // Optional: clear any auth tokens or user data
-    // localStorage.clear();
     navigate('/');
   };
 
   return (
-    <div className="w-20 h-full bg-[#1E1E2D] text-white flex flex-col items-center py-6 z-50">
-
-      {/* Menu Items + Admin Button */}
-      <div className="flex-grow w-full flex flex-col gap-6 items-center">
-        {/* Menu Buttons */}
+    <div className="w-24 h-screen bg-[#1E1E2D] text-white flex flex-col justify-between items-center py-6">
+      
+      {/* Top Section: Menu + Admin */}
+      <div className="flex flex-col gap-6 items-center w-full">
+        {/* Menu Items */}
         {menuItems.map((item) => {
           const Icon = item.icon;
           return (
@@ -45,7 +43,7 @@ const SideBar = ({ setActiveSection }) => {
           );
         })}
 
-        {/* Admin Button (just below menu) */}
+        {/* Admin Button */}
         <button
           onClick={() => handleClick('Admin')}
           className={`p-3 rounded-xl transition-colors ${
@@ -56,8 +54,8 @@ const SideBar = ({ setActiveSection }) => {
         </button>
       </div>
 
-      {/* Logout Button at the very bottom */}
-      <div className="w-full flex justify-center mt-6 mb-2">
+      {/* Bottom Section: Logout */}
+      <div className="mb-2">
         <button
           onClick={handleLogout}
           className="p-3 rounded-xl hover:bg-[#2A2A3B] bg-[#2A2A3B] transition-colors"
