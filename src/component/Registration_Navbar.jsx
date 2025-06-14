@@ -41,44 +41,50 @@ const Registration_Navbar = ({ data, onSearch }) => {
     onSearch(value); // send to parent
   };
 
-  //count logic
+  // Count logic
   const totalQuery = data.length;
-  const totalResolved = data.filter(
-    (item) => item.status === "Resolved"
-  ).length;
+  const totalResolved = data.filter((item) => item.status === "Resolved").length;
   const totalPending = data.filter((item) => item.status === "Pending").length;
 
   return (
-    <div className="flex flex-wrap justify-evenly items-center">
-      <div className="mt-6 mx-4 flex items-center justify-between bg-white shadow-md px-6 py-2 rounded-full w-full max-w-xl">
-        <div className="flex items-center gap-3 flex-grow">
+    <div className="flex flex-col lg:flex-row lg:flex-wrap justify-evenly items-center px-4 gap-4">
+      
+      {/* Search Input */}
+      <div className="mt-4 w-full max-w-sm">
+        <div className="flex items-center bg-white shadow-md px-4 py-2 rounded-full w-full">
           <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
           <input
             type="text"
             placeholder="Search by name, ID, or mobile..."
             value={searchTerm}
             onChange={handleSearchChange}
-            className="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500"
+            className="w-full ml-2 border-none focus:outline-none"
           />
         </div>
       </div>
 
-      <div className="bg-blue-300 mt-6 px-4 py-2 rounded-full">
-        Total Query: {totalQuery}
-      </div>
-      <div className="bg-green-300 mt-6 px-4 py-2 rounded-full">
-        Resolved: {totalResolved}
-      </div>
-      <div className="bg-yellow-300 mt-6 px-4 py-2 rounded-full">
-        Pending: {totalPending}
+      {/* Count Stats */}
+      <div className="flex flex-wrap justify-center gap-4 mt-2">
+        <div className="bg-[#3f1063] text-white px-4 py-2 rounded-full text-sm text-center min-w-[120px]">
+          Total Query: {totalQuery}
+        </div>
+        <div className="bg-[#3f1063] text-white px-4 py-2 rounded-full text-sm text-center min-w-[120px]">
+          Resolved: {totalResolved}
+        </div>
+        <div className="bg-[#3f1063] text-white px-4 py-2 rounded-full text-sm text-center min-w-[120px]">
+          Pending: {totalPending}
+        </div>
       </div>
 
-      <button
-        onClick={handleDownload}
-        className="ml-6 h-10 mt-6 px-4  bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700"
-      >
-        Download Excel
-      </button>
+      {/* Download Button */}
+      <div className="mt-2">
+        <button
+          onClick={handleDownload}
+          className="h-10 px-6 bg-[#3f1063] text-white rounded-full text-sm hover:opacity-90 transition"
+        >
+          Download Excel
+        </button>
+      </div>
     </div>
   );
 };
