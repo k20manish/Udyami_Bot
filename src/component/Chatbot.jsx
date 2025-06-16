@@ -18,6 +18,8 @@ function Chatbot({ initialQuery, onBack }) {
   const chatContainerRef = useRef(null);
   const abortControllerRef = useRef(null);
   const [userQuery, setUserQuery] = useState("");
+  const [isBubbleButtonOpen, setBubbleButtonOpen] = useState(false);
+  
 
   // Typing glow logic
   const [isTyping, setIsTyping] = useState(false);
@@ -118,14 +120,27 @@ function Chatbot({ initialQuery, onBack }) {
           );
         }
 
+const formattedText = formatResponseAsMarkdown(data.response);
+
         setMessages((prev) => [
-          ...prev,
-          {
-            text: formatResponseAsMarkdown(data.response),
-            type: "bot",
-            timestamp: new Date().toLocaleTimeString(),
-          },
-        ]);
+  ...prev,
+  {
+    text: formattedText,
+    type: "bot",
+    timestamp: new Date().toLocaleTimeString(),
+  },
+]);
+
+// check the message for it conains the the text 
+if (
+  formattedText.includes(
+    "Could you please clarify which sub-scheme you're referring to under Udyami Yojna — MMUY or BLUY"
+  )
+) {
+  setBubbleButtonOpen(true);
+} else {
+  setBubbleButtonOpen(false);
+}
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error("Chatbot Error:", error);
@@ -285,7 +300,7 @@ function Chatbot({ initialQuery, onBack }) {
                         p: ({ children }) => <p className="mb-2">{children}</p>,
                       }}
                     >
-                      {msg.text}
+                      {msg.text || "No response available."}
                     </ReactMarkdown>
                   ) : (
                     msg.text
@@ -323,6 +338,30 @@ function Chatbot({ initialQuery, onBack }) {
         </div>
 
         {/* Input Area */}
+        {isBubbleButtonOpen && (
+          <div className="flex items-center justify-center">
+  <motion.div
+    className="grid grid-cols-2 gap-6"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+  >
+    {/* Button 1 */}
+    <button className="relative group px-2 py-1 text-white font-semibold rounded-full overflow-hidden border border-[#8852F2] hover:scale-105 transition-transform duration-300">
+      <span className="relative z-10 text-xs block rounded-full px-2 py-1 text-black">
+        BLUY
+      </span>
+    </button>
+
+    {/* Button 2 */}
+    <button className="relative group px-2 py-1 text-white font-semibold rounded-full overflow-hidden border border-[#8852F2] hover:scale-105 transition-transform duration-300">
+      <span className="relative z-10 text-xs block rounded-full px-2 py-1 text-black">
+        MMUY
+      </span>
+    </button>
+  </motion.div>
+</div>
+        )}
         <div className="w-full px-2 py-2 flex items-center space-x-2 border-t border-gray-200">
           <input
             type="text"
@@ -352,6 +391,8 @@ function Chatbot({ initialQuery, onBack }) {
             />
           </button>
         </div>
+        {/* Bubble Button */}
+        
       </div>
     </motion.div>
   );
