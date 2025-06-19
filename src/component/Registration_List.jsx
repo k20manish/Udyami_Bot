@@ -19,7 +19,7 @@ const Registration_List = ({ data = [], handleMarkResolved }) => {
         <div className="space-x-2">
           <button
             onClick={() => setFilter("All")}
-            className={`px-3 py-1 rounded text-sm ${
+            className={`px-3 py-1 rounded text-sm cursor-pointer ${
               filter === "All"
                 ? "bg-[#3f1063] text-white"
                 : "bg-gray-200 text-gray-700"
@@ -29,7 +29,7 @@ const Registration_List = ({ data = [], handleMarkResolved }) => {
           </button>
           <button
             onClick={() => setFilter("Pending")}
-            className={`px-3 py-1 rounded text-sm ${
+            className={`px-3 py-1 rounded text-sm cursor-pointer ${
               filter === "Pending"
                 ? "bg-[#3f1063] text-white"
                 : "bg-gray-200 text-gray-700"

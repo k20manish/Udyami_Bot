@@ -80,7 +80,7 @@ const Registration_Navbar = ({ data, onSearch }) => {
       <div className="mt-2">
         <button
           onClick={handleDownload}
-          className="h-10 px-6 bg-[#3f1063] text-white rounded-full text-sm hover:opacity-90 transition"
+          className="h-10 px-6 bg-[#3f1063] text-white rounded-full text-sm hover:opacity-90 transition cursor-pointer"
         >
           Download Excel
         </button>

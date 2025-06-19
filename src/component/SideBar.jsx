@@ -34,7 +34,7 @@ const SideBar = ({ setActiveSection }) => {
             <button
               key={item.name}
               onClick={() => handleClick(item.name)}
-              className={`p-3 rounded-xl transition-colors ${
+              className={`p-3 rounded-xl transition-colors cursor-pointer ${
                 active === item.name ? 'bg-[#2A2A3B]' : 'hover:bg-[#2A2A3B]'
               }`}
             >
@@ -46,7 +46,7 @@ const SideBar = ({ setActiveSection }) => {
         {/* Admin Button */}
         <button
           onClick={() => handleClick('Admin')}
-          className={`p-3 rounded-xl transition-colors ${
+          className={`p-3 rounded-xl transition-colors cursor-pointer ${
             active === 'Admin' ? 'bg-[#2A2A3B]' : 'hover:bg-[#2A2A3B]'
           }`}
         >
@@ -58,7 +58,7 @@ const SideBar = ({ setActiveSection }) => {
       <div className="mb-2">
         <button
           onClick={handleLogout}
-          className="p-3 rounded-xl hover:bg-[#2A2A3B] bg-[#2A2A3B] transition-colors"
+          className="p-3 rounded-xl hover:bg-[#2A2A3B] bg-[#2A2A3B] transition-colors cursor-pointer"
           title="Logout"
         >
           {/* Logout Icon */}
