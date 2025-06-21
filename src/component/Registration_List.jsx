@@ -78,7 +78,7 @@ const Registration_List = ({ data = [], handleMarkResolved }) => {
               </thead>
             </table>
 
-            <div className="max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+            <div className="max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
               <table className="w-full table-fixed text-[10px] sm:text-xs md:text-sm">
                 <tbody>
                   {filteredData.map((user, index) => (
