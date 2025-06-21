@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeaderSection = () => {
   return (
-    <header className="w-full mx-auto  px-6 py-4 shadow-md  flex items-center justify-between">
+    <header className="w-full mx-auto h-18  px-6 py-4 shadow-md  flex items-center justify-between">
       <div className="max-w-7xl  flex items-center px-6 py-4">
         {/* Logo */}
         <img

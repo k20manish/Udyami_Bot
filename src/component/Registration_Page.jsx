@@ -6,8 +6,9 @@ import Registration_List from './Registration_List';
 
 function Registration_Page() {
   const [originalData, setOriginalData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);``
 
+  
   const [registrationData, setRegistrationData] = useState([
     {
       id: 1,
@@ -18,6 +19,7 @@ function Registration_Page() {
       applicationDate: '2025-06-01',
       resolvedDate: '',
       issue: "I have not received the second tranche of Udyami Yojana funds.",
+      district: "Patna",
     },
     {
       id: 2,
@@ -28,6 +30,7 @@ function Registration_Page() {
       applicationDate: '2025-05-28',
       resolvedDate: '2025-06-03',
       issue: "I want to update my bank details for Udyami Yojana.",
+      district: "Gaya",
     },
     {
       id: 3,
@@ -38,6 +41,7 @@ function Registration_Page() {
       applicationDate: "2025-06-02",
       resolvedDate: "",
       issue: "My application was rejected, can I reapply for Udyami Yojana?",
+      district: "Muzaffarpur",
     },
     {
       id: 4,
@@ -48,6 +52,7 @@ function Registration_Page() {
       applicationDate: "2025-05-30",
       resolvedDate: "2025-06-05",
       issue: "I have lost my approval letter for Udyami Yojana.",
+      district: "Bhagalpur",
     },
     {
       id: 5,
@@ -58,6 +63,7 @@ function Registration_Page() {
       applicationDate: "2025-06-04",
       resolvedDate: "",
       issue: "I have not received any update after submitting my documents.",
+      district: "Darbhanga",
     },
     {
       id: 6,
@@ -68,6 +74,7 @@ function Registration_Page() {
       applicationDate: "2025-06-01",
       resolvedDate: "2025-06-06",
       issue: "I want to know the status of my second tranche release.",
+      district: "Purnia",
     },
     {
       id: 7,
@@ -78,6 +85,7 @@ function Registration_Page() {
       applicationDate: "2025-06-03",
       resolvedDate: "",
       issue: "I need to correct my name in the Udyami Yojana application.",
+      district: "Chapra",
     },
     {
       id: 8,
@@ -88,6 +96,7 @@ function Registration_Page() {
       applicationDate: "2025-05-29",
       resolvedDate: "",
       issue: "Why was my Udyami Yojana application rejected?",
+      district: "Katihar",
     },
     {
       id: 9,
@@ -98,6 +107,7 @@ function Registration_Page() {
       applicationDate: "2025-06-05",
       resolvedDate: "",
       issue: "I have not received the login credentials for the portal.",
+      district: "Munger",
     },
     {
       id: 10,
@@ -108,6 +118,7 @@ function Registration_Page() {
       applicationDate: "2025-06-01",
       resolvedDate: "2025-06-07",
       issue: "I want to change my registered mobile number.",
+      district: "Begusarai",
     },
     {
       id: 11,
@@ -118,6 +129,7 @@ function Registration_Page() {
       applicationDate: "2025-05-31",
       resolvedDate: "",
       issue: "I submitted all documents but my application was rejected.",
+      district: "Arrah",
     },
     {
       id: 12,
@@ -128,6 +140,7 @@ function Registration_Page() {
       applicationDate: "2025-06-06",
       resolvedDate: "",
       issue: "I want to know the expected approval date for my application.",
+      district: "Bettiah",
     },
     {
       id: 13,
@@ -138,6 +151,7 @@ function Registration_Page() {
       applicationDate: "2025-06-02",
       resolvedDate: "2025-06-08",
       issue: "I have not received the funds in my bank account yet.",
+      district: "Sasaram",
     },
     {
       id: 14,
@@ -148,6 +162,7 @@ function Registration_Page() {
       applicationDate: "2025-05-27",
       resolvedDate: "",
       issue: "I want to appeal against the rejection of my application.",
+      district: "Sitamarhi",
     },
     {
       id: 15,
@@ -158,6 +173,7 @@ function Registration_Page() {
       applicationDate: "2025-06-03",
       resolvedDate: "2025-06-09",
       issue: "I need help with uploading documents for the next phase.",
+      district: "Samastipur",
     },
     {
       id: 16,
@@ -168,6 +184,7 @@ function Registration_Page() {
       applicationDate: "2025-06-05",
       resolvedDate: "",
       issue: "I have lost my registration ID for Udyami Yojana.",
+      district: "Jehanabad",
     }
   ]);
 

@@ -47,11 +47,14 @@ const Registration_Navbar = ({ data, onSearch }) => {
   const totalPending = data.filter((item) => item.status === "Pending").length;
 
   return (
-    <div className="flex flex-col lg:flex-row lg:flex-wrap justify-evenly items-center px-4 gap-4">
+    <div className="flex flex-col lg:flex-row lg:flex-wrap justify-between items-center px-4 gap-4">
       
       {/* Search Input */}
       <div className="mt-4 w-full max-w-sm">
-        <div className="flex items-center bg-white shadow-md px-4 py-2 rounded-full w-full">
+        <div className="flex items-center bg-white shadow-md   shadow-gray-400 px-4 py-2 rounded-full w-full" style={{
+    boxShadow: "0 -4px 6px -2px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.1)",
+  }}>
+          
           <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
           <input
             type="text"
@@ -63,20 +66,7 @@ const Registration_Navbar = ({ data, onSearch }) => {
         </div>
       </div>
 
-      {/* Count Stats */}
-      <div className="flex flex-wrap justify-center gap-4 mt-2">
-        <div className="bg-[#3f1063] text-white px-4 py-2 rounded-full text-sm text-center min-w-[120px]">
-          Total Query: {totalQuery}
-        </div>
-        <div className="bg-[#3f1063] text-white px-4 py-2 rounded-full text-sm text-center min-w-[120px]">
-          Resolved: {totalResolved}
-        </div>
-        <div className="bg-[#3f1063] text-white px-4 py-2 rounded-full text-sm text-center min-w-[120px]">
-          Pending: {totalPending}
-        </div>
-      </div>
-
-      {/* Download Button */}
+     
       <div className="mt-2">
         <button
           onClick={handleDownload}

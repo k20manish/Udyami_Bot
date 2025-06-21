@@ -111,15 +111,7 @@ const LoginPage = () => {
               Login
             </button>
 
-            {/* Other Login Options */}
-            {/* <div className="text-center mt-4">
-              <p className="mb-3 text-gray-600">------ or continue with ------</p>
-              <div className="flex justify-center gap-4">
-                <img className="h-10 w-10 cursor-pointer" src="/google.png" alt="Google" />
-                <img className="h-10 w-10 cursor-pointer" src="/apple.png" alt="Apple" />
-                <img className="h-10 w-10 cursor-pointer" src="/facebook.png" alt="Facebook" />
-              </div>
-            </div> */}
+            
 
             {/* Register Prompt */}
             <div className="text-center mt-4 text-sm">
